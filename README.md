@@ -1,6 +1,8 @@
 # Restaurants_and_House_Prices
 Can yelp reviews help us determine housing prices? Can we predict diversity (type of restaurant) of restaurants based on housing prices?
 
+## GitHub Protocol
+=======
 Project Ideas
 Identify datasets 
 Data Exploration
@@ -14,3 +16,4 @@ ML/NN - Sequential/CNN?
 Data Vizualization
 GeoJSON
 Tableau
+
