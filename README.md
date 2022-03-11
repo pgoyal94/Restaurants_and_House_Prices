@@ -25,5 +25,9 @@ Zillow Data Set
 - Can yelp reviews help us determine housing prices? 
 - Can we predict diversity (type of restaurant) of restaurants based on housing prices?
 
+## Communication Protocol:
+- Communicate via Slack and Text message group chat
+- Use Google Drive to store all resources (
+
 
 
