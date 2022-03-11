@@ -27,7 +27,11 @@ Zillow Data Set
 
 ## Communication Protocol:
 - Communicate via Slack and Text message group chat
-- Use Google Drive to store all resources (
+- Use Google Drive to store all resources (shared data sets, notes, etc.)
+- Slide Deck in Google Drive is the key way to share information and notes
+- The person who creates the pull request in GitHub will not be the person to approve it
+- Use Zoom to meet outside of class times
+
 
 
 
