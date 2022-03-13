@@ -1,0 +1,32 @@
+['BubbleTea', 'Coffee&Tea', 'Bakeries', 'Burgers', 'FastFood', 'Sandwiches',\
+                              'IceCream&FrozenYogurt', 'Vietnamese', 'FoodTrucks', 'American(Traditional)',\
+                              'Diners', 'Breakfast&Brunch', 'SushiBars', 'Japanese', 'Korean', 'Steakhouses',\
+                              'AsianFusion', 'Italian', 'Pizza', 'ChickenWings', 'Brewpubs', 'Breweries',\
+                              'SportsBars', 'American(New)', 'Bars', 'Salad', 'BeerBar', 'Lounges', 'Wraps',\
+                              'Delis', 'Pubs', 'WineBars', 'Gastropubs', 'JuiceBars&Smoothies',\
+                              'Seafood', 'Cajun/Creole', 'Mexican', 'French', 'Moroccan', 'Mediterranean',\
+                              'Chinese', 'Live/RawFood', 'Beer', 'Wine&Spirits', 'Barbeque', 'Hotels&Travel',\
+                              'Thai', 'Bagels', 'Southern', 'Irish', 'Vegan', 'CocktailBars', 'Tapas/SmallPlates',\
+                              'IrishPub', 'CoffeeRoasteries', 'Cupcakes', 'Caribbean', 'Trinidadian', 'Cafes',\
+                              'ComfortFood', 'Donuts', 'AcaiBowls', 'Vegetarian', 'Pakistani', 'Indian',\
+                              'Soup', 'Halal', 'StreetVendors', 'Greek', 'FoodStands', 'HotDogs', 'Gluten-Free',\
+                              'Empanadas', 'Desserts', 'WhiskeyBars', 'LatinAmerican', 'Honduran', 'Noodles',\
+                              'Spanish', 'Cheesesteaks', 'African', 'Kebab', 'Turkish','MiddleEastern', 'Lebanese',\
+                              'Creperies', 'Gelato', 'Poke', 'Falafel', 'Pretzels', 'Wineries', 'LocalFlavor',\
+                              'Tex-Mex', 'DiveBars', 'Peruvian', 'Tacos', 'BeerGardens', 'SoulFood', 'Ramen',\
+                              'Malaysian', 'Burmese', 'Hawaiian', 'EthnicFood','Do-It-YourselfFood', 'Sicilian',\
+                              'Filipino', 'ThemedCafes','Fish&Chips', 'Sardinian', 'Laotian', 'Teppanyaki', 'Szechuan',\
+                              'ShavedIce','Persian/Iranian', 'HongKongStyleCafe', 'Taiwanese', 'PanAsian', 'NewMexicanCuisine',\
+                              'Oriental', 'Dominican', 'InternetCafes','Cuban', 'PuertoRican','Portuguese', 'DimSum',\
+                              'TapasBars','Cantonese', 'Arabic', 'CandyStores', 'Buffets', 'Brasseries', 'Distilleries',\
+                              'Ethiopian',  'Salvadoran', 'Karaoke', 'Mongolian', 'British', 'German', 'Syrian',\
+                              'Armenian', 'Waffles','ModernEuropean', 'Colombian', 'Haitian', 'Czech', 'Pop-UpRestaurants',\
+                              'TikiBars', 'Polish', 'Hainan', 'TeaRooms', 'Russian', 'Cafeteria', 'Afghan',\
+                              'Somali', 'Argentine', 'Brazilian', 'PianoBars', 'Senegalese', 'Tuscan', 'Smokehouse',\
+                              'Cambodian', 'Patisserie/CakeShop', 'Venezuelan', 'Shanghainese', 'Indonesian', 'GayBars',\
+                              'Kombucha', 'Calabrian', 'Australian', 'Iberian', 'JapaneseCurry', 'Izakaya', 'Nicaraguan',\
+                              'HotPot', 'Kosher', 'Pancakes','Egyptian', 'SriLankan', 'Uzbek', 'Scandinavian', 'Himalayan/Nepalese',\
+                              'ChampagneBars', 'Delicatessen', 'Israeli','ShavedSnow', 'Macarons','Georgian', 'Belgian',\
+                              'Fuzhou', 'Basque', 'Ukrainian','Fondue', 'Singaporean', 'SouthAfrican','Bangladeshi',\
+                              'Hungarian', 'Bistros', 'Scottish','Guamanian','Tonkatsu', 'Donburi', 'Pita', 'Austrian',\
+                              'EasternEuropean', 'Cucinacampana', 'ConveyorBeltSushi','Poutineries','Coffeeshops','SerboCroatian']
