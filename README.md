@@ -11,7 +11,7 @@
 ### [Data Exploration Folder](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Data_Exploration)
 - Notebooks showing data clean-up and preprocessing
 
-### AWSConnection_ML_Prelim_Analysis.ipynb
+### [AWSConnection_ML_Prelim_Analysis.ipynb](https://github.com/pgoyal94/Restaurants_and_House_Prices/blob/main/AWSConnection_ML_Prelim_Analysis.ipynb)
 - Draft machine learning (ML) model, connected to provisional database
 - We are trying out multiple different models on the preliminary mock data (restaurant type generated randomly) to see which we will use in the final model.
 
