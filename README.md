@@ -1,5 +1,19 @@
 # Restaurants_and_House_Prices
 
+## Segment 1 Submission Files:
+[Resources Folder](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Resources)
+- Cleaned Zillow data file
+- Cleaned Yelp data file
+- Merged Zillow and Yelp data file
+- Cleaned up Neighborhood_Tier data file
+[Data Exploration Folder](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Data_Exploration)
+- Notebooks showing data clean-up and preprocessing
+AWSConnection_ML_Prelim_Analysis.ipynb
+- Draft machine learning (ML) model, connected to provisional database
+- We are trying out multiple different models on the preliminary mock data to see which we will use in the final model.
+SQL_Database
+- Connection of Neighborhood_Tier file to AWS/Postgres database (provisional database used in ML model)
+
 ## Presentation:
 
 ### Topic: 
@@ -22,8 +36,8 @@ Zillow Data Set
 -  Total of 30,468 entries with 14894 unique cities
 
 ### Questions:
-- Can yelp reviews help us determine housing prices? 
-- Can we predict diversity (type of restaurant) of restaurants based on housing prices?
+- Can Yelp reviews and diversity of types of restaurants help us determine housing prices or neighborhood price tiers? 
+- Can we predict diversity (type of restaurant) of restaurants based on housing prices? (Not included in Segment 1)
 
 ## Communication Protocol:
 - Communicate via Slack and Text message group chat
