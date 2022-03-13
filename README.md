@@ -10,7 +10,7 @@
 - Notebooks showing data clean-up and preprocessing
 AWSConnection_ML_Prelim_Analysis.ipynb
 - Draft machine learning (ML) model, connected to provisional database
-- We are trying out multiple different models on the preliminary mock data to see which we will use in the final model.
+- We are trying out multiple different models on the preliminary mock data (restaurant type generated randomly) to see which we will use in the final model.
 SQL_Database
 - Connection of Neighborhood_Tier file to AWS/Postgres database (provisional database used in ML model)
 
