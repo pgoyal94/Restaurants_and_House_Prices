@@ -5,7 +5,7 @@
                               'SportsBars', 'American(New)', 'Bars', 'Salad', 'BeerBar', 'Lounges', 'Wraps',\
                               'Delis', 'Pubs', 'WineBars', 'Gastropubs', 'JuiceBars&Smoothies',\
                               'Seafood', 'Cajun/Creole', 'Mexican', 'French', 'Moroccan', 'Mediterranean',\
-                              'Chinese', 'Live/RawFood', 'Beer', 'Wine&Spirits', 'Barbeque', 'Hotels&Travel',\
+                              'Chinese', 'Live/RawFood', 'Beer', 'Wine&Spirits', 'Barbeque',\
                               'Thai', 'Bagels', 'Southern', 'Irish', 'Vegan', 'CocktailBars', 'Tapas/SmallPlates',\
                               'IrishPub', 'CoffeeRoasteries', 'Cupcakes', 'Caribbean', 'Trinidadian', 'Cafes',\
                               'ComfortFood', 'Donuts', 'AcaiBowls', 'Vegetarian', 'Pakistani', 'Indian',\
