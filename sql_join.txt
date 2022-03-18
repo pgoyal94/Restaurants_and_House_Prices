@@ -1,0 +1,17 @@
+-- If you run the following query in postgres
+-- the query will join yelp_by_zip on the zillow_housing table on the postal_code
+
+SELECT y.postal_code
+      ,y.total_restaurants
+      ,y.avg_stars
+      ,y.total_reviews
+      ,"Bakeries_stars"
+      ,"BubbleTea"
+      ,"Coffee&Tea"
+      ,"State"
+      ,"City"
+      ,"CountyName"
+      ,"2021"
+  FROM yelp_by_zip         AS y
+  LEFT JOIN zillow_housing AS z
+    ON y.postal_code = z.postal_code
