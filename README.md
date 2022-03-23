@@ -1,6 +1,6 @@
 # Restaurants_and_House_Prices
 
-# Segment 2 Submission Files:
+## Segment 2 Submission Files:
 
 ### [Google Slides](https://docs.google.com/presentation/d/1PKg5WkO88eU_hPHp4mJDg0-3eRan4CjP15BmRV8o_pw/edit?usp=sharing)
 - See slides for Description of data exploration
@@ -15,14 +15,14 @@
 
 <hr style="border:2px solid gray"> </hr>
 
-# Communication Protocol:
+## Communication Protocol:
 - Communicate via Slack and Text message group chat
 - Use Google Drive to store all resources (shared data sets, notes, etc.)
 - Slide Deck in Google Drive is the key way to share information and notes
 - The person who creates the pull request in GitHub will not be the person to approve it
 - Use Zoom to meet outside of class times
 
-# Presentation:
+## Presentation:
 
 ### Topic: 
 Diversity of restaurants and how they relate to median house prices by zip code
@@ -49,7 +49,7 @@ Zillow Data Set
 
 <hr style="border:2px solid gray"> </hr>
 
-# Segment 1 Submission Files:
+## Segment 1 Submission Files:
 
 ### [Resources Folder](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Resources)
 - Cleaned Zillow data file
