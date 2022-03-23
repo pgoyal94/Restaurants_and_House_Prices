@@ -5,6 +5,10 @@
 ### [Google Slides](https://docs.google.com/presentation/d/1PKg5WkO88eU_hPHp4mJDg0-3eRan4CjP15BmRV8o_pw/edit?usp=sharing)
 - See slides for Description of data exploration
 - See slides for Description of analysis 
+- See slides for Description of preliminary data preprocessing
+- See slides for Description of preliminary feature engineering and preliminary feature selection
+- See slides for Description of how data was split
+- See slides for Explanation of model choice
 
 ### Code
 - [Code for exploratory analysis](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Data_Exploration)
