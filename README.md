@@ -2,9 +2,25 @@
 
 # Segment 2 Submission Files:
 
-[Google Slides](https://docs.google.com/presentation/d/1PKg5WkO88eU_hPHp4mJDg0-3eRan4CjP15BmRV8o_pw/edit?usp=sharing)
+### [Google Slides](https://docs.google.com/presentation/d/1PKg5WkO88eU_hPHp4mJDg0-3eRan4CjP15BmRV8o_pw/edit?usp=sharing)
+- See slides for Description of data exploration
+- See slides for Description of analysis 
+
+### Code
+- [Code for exploratory analysis](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Data_Exploration)
+- [Code for machine learning](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Machine_Learning)
+
+### Project Outline
+
 
 <hr style="border:2px solid gray"> </hr>
+
+# Communication Protocol:
+- Communicate via Slack and Text message group chat
+- Use Google Drive to store all resources (shared data sets, notes, etc.)
+- Slide Deck in Google Drive is the key way to share information and notes
+- The person who creates the pull request in GitHub will not be the person to approve it
+- Use Zoom to meet outside of class times
 
 # Presentation:
 
@@ -29,14 +45,7 @@ Zillow Data Set
 
 ### Questions:
 - Can Yelp reviews and diversity of types of restaurants help us determine housing prices or neighborhood price tiers? 
-- Can we predict diversity (type of restaurant) of restaurants based on housing prices? (Not included in Segment 1)
-
-# Communication Protocol:
-- Communicate via Slack and Text message group chat
-- Use Google Drive to store all resources (shared data sets, notes, etc.)
-- Slide Deck in Google Drive is the key way to share information and notes
-- The person who creates the pull request in GitHub will not be the person to approve it
-- Use Zoom to meet outside of class times
+- Can we predict diversity (type of restaurant) of restaurants based on housing prices? (Not included in Segment 1 or 2)
 
 <hr style="border:2px solid gray"> </hr>
 
