@@ -1,4 +1,4 @@
-# Restaurants_and_House_Prices
+# Restaurants and House Prices
 
 ## Segment 2 Submission Files:
 
@@ -11,7 +11,12 @@
 - [Code for machine learning](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Machine_Learning)
 
 ### Project Outline
-
+1. Introduction to project
+2. Description of the data
+3. Data exploration and processing
+4. Data analysis (ML modeling)
+5. Results and conclusions
+7. Recommendations for future analysis
 
 <hr style="border:2px solid gray"> </hr>
 
