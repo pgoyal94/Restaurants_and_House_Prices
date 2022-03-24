@@ -1,24 +1,38 @@
-# Restaurants_and_House_Prices
+# Restaurants and House Prices
 
-# Segment 1 Submission Files:
+## Segment 2 Submission Files:
 
-### [Resources Folder](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Resources)
-- Cleaned Zillow data file
-- Cleaned Yelp data file
-- Merged Zillow and Yelp data file
-- Cleaned up Neighborhood_Tier data file
+### [Google Slides](https://docs.google.com/presentation/d/1PKg5WkO88eU_hPHp4mJDg0-3eRan4CjP15BmRV8o_pw/edit?usp=sharing)
+- See slides for Description of data exploration
+- See slides for Description of analysis 
+- See slides for Description of preliminary data preprocessing
+- See slides for Description of preliminary feature engineering and preliminary feature selection
+- See slides for Description of how data was split
+- See slides for Explanation of model choice
+- See slides for Blueprint of the dashboard
 
-### [Data Exploration Folder](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Data_Exploration)
-- Notebooks showing data clean-up and preprocessing
+### Code
+- [Code for exploratory analysis](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Data_Exploration)
+- [Code for machine learning](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Machine_Learning)
 
-### [AWSConnection_ML_Prelim_Analysis.ipynb](https://github.com/pgoyal94/Restaurants_and_House_Prices/blob/main/AWSConnection_ML_Prelim_Analysis.ipynb)
-- Draft machine learning (ML) model, connected to provisional database
-- We are trying out multiple different models on the preliminary mock data (restaurant type generated randomly) to see which we will use in the final model.
+### Project Outline
+1. Introduction to project
+2. Description of the data
+3. Data exploration and processing
+4. Data analysis (ML modeling)
+5. Results and conclusions
+7. Recommendations for future analysis
 
-### SQL_Database
-- Connection of Neighborhood_Tier file to AWS/Postgres database (provisional database used in ML model)
+<hr style="border:2px solid gray"> </hr>
 
-# Presentation:
+## Communication Protocol:
+- Communicate via Slack and Text message group chat
+- Use Google Drive to store all resources (shared data sets, notes, etc.)
+- Slide Deck in Google Drive is the key way to share information and notes
+- The person who creates the pull request in GitHub will not be the person to approve it
+- Use Zoom to meet outside of class times
+
+## Presentation:
 
 ### Topic: 
 Diversity of restaurants and how they relate to median house prices by zip code
@@ -41,15 +55,27 @@ Zillow Data Set
 
 ### Questions:
 - Can Yelp reviews and diversity of types of restaurants help us determine housing prices or neighborhood price tiers? 
-- Can we predict diversity (type of restaurant) of restaurants based on housing prices? (Not included in Segment 1)
+- Can we predict diversity (type of restaurant) of restaurants based on housing prices? (Not included in Segment 1 or 2)
 
-# Communication Protocol:
-- Communicate via Slack and Text message group chat
-- Use Google Drive to store all resources (shared data sets, notes, etc.)
-- Slide Deck in Google Drive is the key way to share information and notes
-- The person who creates the pull request in GitHub will not be the person to approve it
-- Use Zoom to meet outside of class times
+<hr style="border:2px solid gray"> </hr>
 
+## Segment 1 Submission Files:
+
+### [Resources Folder](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Resources)
+- Cleaned Zillow data file
+- Cleaned Yelp data file
+- Merged Zillow and Yelp data file
+- Cleaned up Neighborhood_Tier data file
+
+### [Data Exploration Folder](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Data_Exploration)
+- Notebooks showing data clean-up and preprocessing
+
+### [AWSConnection_ML_Prelim_Analysis.ipynb](https://github.com/pgoyal94/Restaurants_and_House_Prices/blob/main/AWSConnection_ML_Prelim_Analysis.ipynb)
+- Draft machine learning (ML) model, connected to provisional database
+- We are trying out multiple different models on the preliminary mock data (restaurant type generated randomly) to see which we will use in the final model.
+
+### SQL_Database
+- Connection of Neighborhood_Tier file to AWS/Postgres database (provisional database used in ML model)
 
 
 
