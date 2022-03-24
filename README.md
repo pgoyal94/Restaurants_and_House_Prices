@@ -9,6 +9,7 @@
 - See slides for Description of preliminary feature engineering and preliminary feature selection
 - See slides for Description of how data was split
 - See slides for Explanation of model choice
+- See slides for Blueprint of the dashboard
 
 ### Code
 - [Code for exploratory analysis](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Data_Exploration)
