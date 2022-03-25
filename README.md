@@ -4,23 +4,23 @@
 
 ### [Google Slides](https://docs.google.com/presentation/d/1PKg5WkO88eU_hPHp4mJDg0-3eRan4CjP15BmRV8o_pw/edit?usp=sharing)
 - See slides for Description of data exploration
-- See slides for Description of analysis 
 - See slides for Description of preliminary data preprocessing
-- See slides for Description of preliminary feature engineering and preliminary feature selection
-- See slides for Description of how data was split
-- See slides for Explanation of model choice
-- See slides for Blueprint of the dashboard
+- See slides for Description of analysis, including:
+  - Description of preliminary feature engineering and preliminary feature selection
+  - Description of how data was split
+  - Explanation of model choice
+- See slides for Blueprint of the final dashboard
 
 ### Code
 - [Code for exploratory analysis](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Data_Exploration)
 - [Code for machine learning](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Machine_Learning)
 
-### Project Outline
-1. Introduction to project
-2. Description of the data
-3. Data exploration and processing
-4. Data analysis (ML modeling)
-5. Results and conclusions
+### Project Outline 
+1. Introduction to project 
+3. Description of the data
+4. Data exploration and processing
+5. Data analysis (ML modeling)
+6. Results and conclusions
 7. Recommendations for future analysis
 
 <hr style="border:2px solid gray"> </hr>
