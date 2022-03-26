@@ -17,11 +17,20 @@
 
 ### Project Outline 
 1. Introduction to project 
-3. Description of the data
-4. Data exploration and processing
-5. Data analysis (ML modeling)
-6. Results and conclusions
-7. Recommendations for future analysis
+   - We are looking at the relationship between house prices and restaurants in the area. We believe that areas where homes are more expensive, there exist a larger variety of restaurants that are ranked higher than restaurants in areas where homes are less expensive. 
+2. Description of the data
+   - To test our hypotheses, we pulled data from Yelp and Zillow for our main database. This gives us data about restaurants, including the types of restaurants, their ratings, number of reviews, etc. as well as house price data. Both of these data sets included zip code, so that is what we used to define a neighborhood for the purposes of our analysis.
+3. Data exploration and processing
+   - In looking at the data, we realize the Yelp data set is an academic one that only appears to include a subset of the total data. The Zillow data set is more complete and covers many of the zip codes in the country. We pulled Zillow data for the year 2021 to be able to see the most recent trends.
+   - We cleaned up the Yelp data set to show only businesses that are currently open and exist only in USA zip codes. Since our project is based on restaurants, we also selected only businesses that had 'restaurant' listed as a category. We defined restaurant diversity as the number of restaurant categories (ex: Coffee&Tea, Bakeries, Burgers, etc.) that exist per zip code, so we added a column to reflect that. 
+   - The Zillow data set required less cleaning. We kept only the median price per zip code and then added a designation of Neighborhood Tier. Neighborhood Tiers are based on a multiplier calculated to eliminate the bias of very large and small data in housing prices. 
+   - We joined the final cleaned Yelp and Zillow datasets on the postal code column using SQL to be able to analyze the data. This showed us, by postal code, what the median house prices were and what the types of restaurants, their review counts, their ratings were, etc.
+4. Data analysis (ML modeling)
+   - We split our data using the SciKit Learn test_train_split module, which helps us avoid over-or under-fitting. We have selected the target variable to be the neighborhood tier column. We wil be using supervised machine learning classification models for our analysis. We are trying to solve a classification problem with our data, which is trying to predict the area's neighborhood tier based on the Yelp restaurant review data. Since we have a rather complex data set, we have chosen models best suited for handling them, including ensemble classifiers. 
+5. Results and conclusions
+   - Based on our preliminary data of the academic Yelp data set, we see that there is a weak correlation, at best. We show a map of the United States, showing the zip codes included in the analysis characterized by their neighborhood tier and diversity of restaurants in the area. The hypotheses would indicate that the larger circles would all be one color, and the smaller circles would all be a seperate color, however looking at the ML model and map, we see that that is not necessarily the case. We see that our hypotheses have been debunked for the most part.
+6. Recommendations for future analysis
+   - We believe prediction of house price may be more accurate when including demographic data by zip code. We will be pulling New York City census data to do a small scale analysis to suggest if the above hypothesis holds true to then make that recommendation more broadly. Additionally, things like home attributes (number of bedrooms/bathrooms, home square footage, lot size, school rankings, etc.) were not included in the data sets we pulled, but could be additionally helpful in normalizing house price to better understand how home price and restaurant diversity are related.
 
 <hr style="border:2px solid gray"> </hr>
 
