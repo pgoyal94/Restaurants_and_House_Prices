@@ -1,22 +1,8 @@
-# Restaurants_and_House_Prices
+﻿# Restaurants_and_House_Prices
 
-# Segment 1 Submission Files:
 
-### [Resources Folder](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Resources)
-- Cleaned Zillow data file
-- Cleaned Yelp data file
-- Merged Zillow and Yelp data file
-- Cleaned up Neighborhood_Tier data file
+# Segment 2 Submission Files:
 
-### [Data Exploration Folder](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Data_Exploration)
-- Notebooks showing data clean-up and preprocessing
-
-### [AWSConnection_ML_Prelim_Analysis.ipynb](https://github.com/pgoyal94/Restaurants_and_House_Prices/blob/main/AWSConnection_ML_Prelim_Analysis.ipynb)
-- Draft machine learning (ML) model, connected to provisional database
-- We are trying out multiple different models on the preliminary mock data (restaurant type generated randomly) to see which we will use in the final model.
-
-### SQL_Database
-- Connection of Neighborhood_Tier file to AWS/Postgres database (provisional database used in ML model)
 
 # Presentation:
 
@@ -50,6 +36,24 @@ Zillow Data Set
 - The person who creates the pull request in GitHub will not be the person to approve it
 - Use Zoom to meet outside of class times
 
+
+# Segment 1 Submission Files:
+
+### [Resources Folder](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Resources)
+- Cleaned Zillow data file
+- Cleaned Yelp data file
+- Merged Zillow and Yelp data file
+- Cleaned up Neighborhood_Tier data file
+
+### [Data Exploration Folder](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Data_Exploration)
+- Notebooks showing data clean-up and preprocessing
+
+### [AWSConnection_ML_Prelim_Analysis.ipynb](https://github.com/pgoyal94/Restaurants_and_House_Prices/blob/main/AWSConnection_ML_Prelim_Analysis.ipynb)
+- Draft machine learning (ML) model, connected to provisional database
+- We are trying out multiple different models on the preliminary mock data (restaurant type generated randomly) to see which we will use in the final model.
+
+### SQL_Database
+- Connection of Neighborhood_Tier file to AWS/Postgres database (provisional database used in ML model)
 
 
 
