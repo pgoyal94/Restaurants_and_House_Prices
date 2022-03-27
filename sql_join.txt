@@ -1,5 +1,6 @@
 -- If you run the following query in postgres
 -- the query will join yelp_by_zip on the zillow_housing table on the postal_code
+-- no changes
 
 SELECT y.postal_code
       ,y.total_restaurants
