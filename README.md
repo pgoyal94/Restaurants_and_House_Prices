@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-﻿# Restaurants_and_House_Prices
-
-
-# Segment 2 Submission Files:
-
-=======
 # Restaurants and House Prices
 
 ## Segment 2 Submission Files:
@@ -47,7 +40,6 @@
 - Slide Deck in Google Drive is the key way to share information and notes
 - The person who creates the pull request in GitHub will not be the person to approve it
 - Use Zoom to meet outside of class times
->>>>>>> 34a797eba24c75903bc547d241834dcfb0d4a642
 
 ## Presentation:
 
@@ -77,24 +69,6 @@ Zillow Data Set
 <hr style="border:2px solid gray"> </hr>
 
 ## Segment 1 Submission Files:
-
-### [Resources Folder](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Resources)
-- Cleaned Zillow data file
-- Cleaned Yelp data file
-- Merged Zillow and Yelp data file
-- Cleaned up Neighborhood_Tier data file
-
-### [Data Exploration Folder](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Data_Exploration)
-- Notebooks showing data clean-up and preprocessing
-
-### [AWSConnection_ML_Prelim_Analysis.ipynb](https://github.com/pgoyal94/Restaurants_and_House_Prices/blob/main/AWSConnection_ML_Prelim_Analysis.ipynb)
-- Draft machine learning (ML) model, connected to provisional database
-- We are trying out multiple different models on the preliminary mock data (restaurant type generated randomly) to see which we will use in the final model.
-
-### SQL_Database
-- Connection of Neighborhood_Tier file to AWS/Postgres database (provisional database used in ML model)
-
-# Segment 1 Submission Files:
 
 ### [Resources Folder](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Resources)
 - Cleaned Zillow data file
