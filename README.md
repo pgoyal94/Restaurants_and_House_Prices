@@ -12,22 +12,24 @@
 
 
 ### Code
-- [Code for exploratory analysis]()
-- [Code for machine learning]()
+- [Code for exploratory analysis and cleaning - housing data](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Final/Housing_data_cleaning)
+- [Code for exploratory analysis and cleaning - restaurant data](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Final/Restaurant_data_cleaning)
+- [Code for machine learning](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Final/ML_Final)
 - [Tableau Dashboard]()
-
+*Need to update Tableau link to published site*
 
 ---
 
-## Introduction
+## 1. Introduction
    We are looking at the relationship between house prices and restaurants in the area. We believe that areas where homes are more expensive, there may exist a larger variety of restaurants and that these restaurants may be ranked higher than restaurants in areas where homes are less expensive. 
 
-## Description of the data sources
+
+## 2. Description of the data sources
    To test our hypotheses, we pulled data from Yelp, Zillow, and Redfin for our main database. This gives us data about restaurants, including the types of restaurants, their ratings, number of reviews, etc. as well as house price data. Both of these data sets included zip code, so that is what we used to define a neighborhood for the purposes of our analysis.
 
 ---
 
-## Data exploration and processing
+## 3. Data exploration and processing
 
 ### Restaurant Data
    - Data from Yelp was pulled from their Fusion API and downloaded as JSON. We pulled for businesses tagged as "Restaurants." Due to API download limits, we pulled 150 businesses across 13,988 zip codes for which we have housing price data (confirm with Ramya).
@@ -46,7 +48,7 @@
 
 ---
 
-## Data analysis (ML modeling)
+## 4. Data analysis (ML modeling)
 
 ### Feature Engineering and Data Splitting
    - Neighborhood tiers was used as the target variable.   
@@ -99,10 +101,10 @@ Given the low accuracy scores in our initial models during segment 2 of the proj
 
 ---
 
-## Results and conclusions (Not yet updated)
+## 5. Results and conclusions (Not yet updated)
    - Based on our preliminary data of the academic Yelp data set, we see that there is a weak correlation, at best. We show a map of the United States, showing the zip codes included in the analysis characterized by their neighborhood tier and diversity of restaurants in the area. The hypotheses would indicate that the larger circles would all be one color, and the smaller circles would all be a seperate color, however looking at the ML model and map, we see that that is not necessarily the case. We see that our hypotheses have been debunked for the most part.
 
-## Recommendations for future analysis (Not yet updated)
+## 6. Recommendations for future analysis (Not yet updated)
    - We believe prediction of house price may be more accurate when including demographic data by zip code. We will be pulling New York City census data to do a small scale analysis to suggest if the above hypothesis holds true to then make that recommendation more broadly. Additionally, things like home attributes (number of bedrooms/bathrooms, home square footage, lot size, school rankings, etc.) were not included in the data sets we pulled, but could be additionally helpful in normalizing house price to better understand how home price and restaurant diversity are related.
 
 <hr style="border:2px solid gray"> </hr>
