@@ -66,8 +66,8 @@
  - Table 1 below shows some sample results from our initial models.
 
 
- **Table 1: Sample Results from initial ML Models - 3 Tiers, County Level**
-[Modeling Notebook](https://github.com/pgoyal94/Restaurants_and_House_Prices/blob/main/Final/ML_Final/ML_Model_Trials/ML_optimization_county_3_tier%20.ipynb)
+ **Table 1: Sample Results from initial ML Models - [3 Tiers, County Level](https://github.com/pgoyal94/Restaurants_and_House_Prices/blob/main/Final/ML_Final/ML_Model_Trials/ML_optimization_county_3_tier%20.ipynb)**
+
 
 |Model|Accuracy Score|Weighted F1 Score|Tier 1 Precision|Tier 1 Recall|Tier 2 Precision|Tier 2 Recall|Tier 3 Precision|Tier 3 Recall|
 |---|---|---|---|---|---|--|--|--|
