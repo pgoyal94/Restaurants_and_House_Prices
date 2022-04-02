@@ -69,19 +69,6 @@
  **Table 1: Sample Results from initial ML Models - 3 Tiers, County Level**
 [Modeling Notebook](https://github.com/pgoyal94/Restaurants_and_House_Prices/blob/main/Final/ML_Final/ML_Model_Trials/ML_optimization_county_3_tier%20.ipynb)
 
-|Model|Logistic Regression|Balanced Random Forest | AdaBoost | Gradient Boost | Naive Bayes|
-|---|---|---|---|---|---|
-|Accuracy Score|52.6%|42.6%|40.8%|50.8%|30.4%|
-|Weighted F1 Score|0.415|0.419|0.394|0.470|0.246|
-|Tier 1 Precision Score|0.52|0.35|0.36|0.42|0.37|
-|Tier 1 Recall Score|0.10|0.52|0.56|0.25|0.16|
-|Tier 2 Precision Score|0.53|0.55|0.56|0.54|0.51|
-|Tier 2 Recall Score|0.94|0.33|0.25|0.77|0.11|
-|Tier 3 Precision Score|0.56|0.37|0.37|0.41|0.27|
-|Tier 3 Recall Score|0.06|0.52|0.60|0.21|0.85|
-
-*Which table looks better?*
-
 |Model|Accuracy Score|Weighted F1 Score|Tier 1 Precision|Tier 1 Recall|Tier 2 Precision|Tier 2 Recall|Tier 3 Precision|Tier 3 Recall|
 |---|---|---|---|---|---|--|--|--|
 |Logistic Regression|52.6%|0.415|0.52|0.10|0.53|0.94|0.56|0.06|
