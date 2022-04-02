@@ -15,8 +15,7 @@
 - [Code for exploratory analysis and cleaning - housing data](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Final/Housing_data_cleaning)
 - [Code for exploratory analysis and cleaning - restaurant data](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Final/Restaurant_data_cleaning)
 - [Code for machine learning](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Final/ML_Final)
-- [Tableau Dashboard]()
-*Need to update Tableau link to published site*
+- [Tableau Dashboard](https://public.tableau.com/app/profile/ryan.morin/viz/tableau_restaurants/RestaurantsHousePrices?publish=yes)
 
 ---
 
@@ -90,6 +89,11 @@ Given the low accuracy scores in our initial models during segment 2 of the proj
 
 ## 5. Results and conclusions (Not yet updated)
    - Based on our preliminary data of the academic Yelp data set, we see that there is a weak correlation, at best. We show a map of the United States, showing the zip codes included in the analysis characterized by their neighborhood tier and diversity of restaurants in the area. The hypotheses would indicate that the larger circles would all be one color, and the smaller circles would all be a seperate color, however looking at the ML model and map, we see that that is not necessarily the case. We see that our hypotheses have been debunked for the most part.
+
+Sample Tableau Visualization - Tiers and Restaurant Diversity by Zip Code:
+
+![image](https://user-images.githubusercontent.com/92613639/161402016-3d3a5bcd-d48d-4f63-b395-cacafcbdd1cd.png)
+
 
 ## 6. Recommendations for future analysis (Not yet updated)
    - We believe prediction of house price may be more accurate when including demographic data by zip code. We will be pulling New York City census data to do a small scale analysis to suggest if the above hypothesis holds true to then make that recommendation more broadly. Additionally, things like home attributes (number of bedrooms/bathrooms, home square footage, lot size, school rankings, etc.) were not included in the data sets we pulled, but could be additionally helpful in normalizing house price to better understand how home price and restaurant diversity are related.
