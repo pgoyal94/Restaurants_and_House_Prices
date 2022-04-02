@@ -34,13 +34,13 @@
 ### Restaurant Data
    - Data from Yelp was pulled from their Fusion API and downloaded as JSON. We pulled for businesses tagged as "Restaurants." Due to API download limits, we pulled 150 businesses across 13,988 zip codes for which we have housing price data (confirm with Ramya).
    - We cleaned the Yelp data set to extract any potentially useful restaurant characteristics for modeling. Additionally, location data such as city and state information was extracted for data preprocessing and visualization.
-   - Categories for each restaurant type were extracted. Additionally, dummies were created for each restaurant category and star ratings of each category for initial exploratory modeling. 
+   - Categories for each restaurant type were extracted. Dummies were created for each restaurant category and star ratings of each category for initial exploratory modeling. 
    - Data for restaurants were aggregated by zip code. The total number of different types of restaurants were counted per zip code.
 
 ### Housing Data
-   - We cleaned up the Yelp data set to show only businesses that are currently open and exist only in USA zip codes. Since our project is based on restaurants, we also selected only businesses that had 'restaurant' listed as a category. We defined restaurant diversity as the number of restaurant categories (ex: Coffee&Tea, Bakeries, Burgers, etc.) that exist per zip code, so we added a column to reflect that. 
-   - The Zillow data set, downloaded as a csv file, included housing price data from 2000 through 2022 by zip code. We kept only the 2021 data for our model as we were interested in the most current representative prices and data for 2022 is incomplete. Location data such as  city, state, and county names were kept for preprocessing and data visualization.
-   - The Redfin data listed weekly median housing prices by zip code for 2021in csv format. We averaged the weekly prices for 2021. Additional location data such as city, state, and county names were kept for preprocessing and visualization.
+   - The Zillow data set, downloaded as a csv file, included housing price data from 2000 through 2022 by zip code. We kept only the 2021 data for our model as we were interested in the most current representative prices and data for 2022 is incomplete.
+   - The Redfin data listed weekly median housing prices by zip code for 2021 in csv format. We averaged the weekly prices for 2021. 
+   - Additional location data such as city, state, and county names were kept for preprocessing and visualization.
 
 ### Merge and Preprocessing
    - We joined the final cleaned Yelp, Zillow, and Redfin datasets on the postal code column using SQL to be able to analyze the data. This showed us, by postal code, what the median house prices were and what the types of restaurants, their review counts, their ratings were, etc.
