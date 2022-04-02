@@ -79,11 +79,15 @@
 
 
 
-### Final Modeling (Need to finish)
+### Model Choice
 
-Given the low accuracy scores in our initial models during segment 2 of the project, we changed our target variable to two tiers only (Tier 1 = above county average, Tier 2 = below county average). We also narrowed our features set to the top 10 (confirm?) features that contributed to the outputs during initial modeling. We selected the **???** as our final model as it consistently yielded some of our best results regardless of the number of features.
+We currently believe that Logistic Regression will be our final model as it consistently yielded some of our best results, although still needing improvement, regardless of the number of features. Given the low accuracy score, we narrowed our features set to the top 13 features that contributed to the outputs during initial modeling. 
 
-(Additional description?)
+Logistic Regression:
+   - Pro: Less prone to fitting, assuming low dimension dataset. 
+   - Con: It assumes some linear relationship between the dependent and independent variables. For our dataset, we cannot be sure that this assumption is correct due to the large number of features.
+   - It's computationally efficient in that it does not require large amounts of memory or resources. It scales to large datasets well as it processes quickly and efficiently.
+   - Can be used as a benchmark model.
 
 ---
 
@@ -97,6 +101,7 @@ Sample Tableau Visualization - Tiers and Restaurant Diversity by Zip Code:
 
 ## 6. Recommendations for future analysis (Not yet updated)
    - We believe prediction of house price may be more accurate when including demographic data by zip code. We will be pulling New York City census data to do a small scale analysis to suggest if the above hypothesis holds true to then make that recommendation more broadly. Additionally, things like home attributes (number of bedrooms/bathrooms, home square footage, lot size, school rankings, etc.) were not included in the data sets we pulled, but could be additionally helpful in normalizing house price to better understand how home price and restaurant diversity are related.
+   - Given the low accuracy scores in our initial models during segment 2 of the project, we plan to change our target variable to two tiers only (Tier 1 = above county average, Tier 2 = below county average). 
 
 <hr style="border:2px solid gray"> </hr>
 
