@@ -23,29 +23,30 @@
    We are looking at the relationship between house prices and restaurants in the area. We believe that areas where homes are more expensive, there may exist a larger variety of restaurants and that these restaurants may be ranked higher than restaurants in areas where homes are less expensive. 
 
 
-## 2. Description of the data sources
-   To test our hypotheses, we pulled data from Yelp, Zillow, and Redfin for our main database. This gives us data about restaurants, including the types of restaurants, their ratings, number of reviews, etc. as well as house price data. Both of these data sets included zip code, so that is what we used to define a neighborhood for the purposes of our analysis.
 
----
+## 2. Description of the data sources
+   To test our hypotheses, we pulled data from Yelp, Zillow, Redfin, and SimpleMaps for our main database. This gives us data about restaurants, including the types of restaurants, their ratings, number of reviews, etc. as well as house price data. The housing data sets included zip code (postal code in datasets), so that is what we used to define a neighborhood for the purposes of our analysis. SimpleMaps provided city and county information for the Redfin dataset.
+   
+_Note: "zip code" and "postal code" are used interchangably in this document._
+
 
 ## 3. Data exploration and processing
 
 ### Restaurant Data
-   - Data from Yelp was pulled from their Fusion API and downloaded as JSON. We pulled for businesses tagged as "Restaurants." Due to API download limits, we pulled 150 businesses across 13,988 zip codes for which we have housing price data (confirm with Ramya).
+   - Data from Yelp was pulled from their Fusion API and downloaded as JSON. We pulled for businesses tagged as "Restaurants." Due to API download limits, we pulled up to 150 businesses across 13,988 zip codes for which we have housing price data.
    - We cleaned the Yelp data set to extract any potentially useful restaurant characteristics for modeling. Additionally, location data such as city and state information was extracted for data preprocessing and visualization.
    - Categories for each restaurant type were extracted. Dummies were created for each restaurant category and star ratings of each category for initial exploratory modeling. 
    - Data for restaurants were aggregated by zip code. The total number of different types of restaurants were counted per zip code.
 
 ### Housing Data
    - The Zillow data set, downloaded as a csv file, included housing price data from 2000 through 2022 by zip code. We kept only the 2021 data for our model as we were interested in the most current representative prices and data for 2022 is incomplete.
-   - The Redfin data listed weekly median housing prices by zip code for 2021 in csv format. We averaged the weekly prices for 2021. 
+   - The Redfin data listed weekly median housing prices by zip code for 2021 in csv format. We averaged the weekly prices for 2021. We also merged this dataset with city and county data from SimpleMaps to create consistent fields for the merged housing dataset.
    - Additional location data such as city, state, and county names were kept for preprocessing and visualization.
 
 ### Merge and Preprocessing
-   - We joined the final cleaned Yelp, Zillow, and Redfin datasets on the postal code column using SQL to be able to analyze the data. This showed us, by postal code, what the median house prices were and what the types of restaurants, their review counts, their ratings were, etc.
+   - We joined the final cleaned Yelp and housing datasets on the postal code column using SQL to be able to analyze the data. This showed us, by postal code (zip code), what the median house prices were and what the types of restaurants, their review counts, their ratings were, etc.
    - Finally, "neighborhood tiers" were created based on a multiplier calculated to eliminate the bias of housing prices in very different markets (e.g. San Francisco market versus rural Texas market where housing prices for equivalent homes would be very different). The median house price for each zip code was divided by average median price for each county (usually several zip codes). Cut offs for tiers was determined by calculating quantiles.
 
----
 
 ## 4. Data analysis (ML modeling)
 
@@ -84,12 +85,11 @@
 We currently believe that Logistic Regression will be our final model as it consistently yielded some of our best results, although still needing improvement, regardless of the number of features. Given the low accuracy score, we narrowed our features set to the top 13 features that contributed to the outputs during initial modeling. 
 
 Logistic Regression:
-   - Pro: Less prone to fitting, assuming low dimension dataset. 
-   - Con: It assumes some linear relationship between the dependent and independent variables. For our dataset, we cannot be sure that this assumption is correct due to the large number of features.
-   - It's computationally efficient in that it does not require large amounts of memory or resources. It scales to large datasets well as it processes quickly and efficiently.
    - Can be used as a benchmark model.
+   - Pro: Less prone to overfitting, assuming low dimension dataset. 
+   - Pro: It's computationally efficient in that it does not require large amounts of memory or resources. It scales to large datasets well as it processes quickly and efficiently.
+   - Con: It assumes some linear relationship between the dependent and independent variables. For our dataset, we cannot be sure that this assumption is correct due to the large number of features.
 
----
 
 ## 5. Results and conclusions 
    - Based on our preliminary data of the academic Yelp data set, we see that there is a weak correlation, at best. We show a map of the United States, showing the zip codes included in the analysis characterized by their neighborhood tier and diversity of restaurants in the area. The hypotheses would indicate that the larger circles would all be one color, and the smaller circles would all be a seperate color, however looking at the ML model and map, we see that that is not necessarily the case. We see that our hypotheses have been debunked for the most part.
