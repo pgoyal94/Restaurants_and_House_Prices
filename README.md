@@ -121,12 +121,38 @@ Other data exploration was done on Tableau: [Click here](https://public.tableau.
 
 
 ## [Machine Learning]()
+We will use five machine learning models to determine which can give the an accurate result.
+- Logistic Regression
+- Random Forest
+- Adaboost
+- Gradient Boost
+- Naive Bayes
 
-### Feature Engineering and Data Splitting
+### Feature Engineering, Data Splitting, and Scaling
    - Neighborhood tiers was used as the target variable.   
    - Features for modeling were selected from the merged restaurant and housing data based on restaurant characteristics such as total number of reviews, ratings, categories, etc. All location variables and the 2021 housing prices were dropped.
    - We split our data using the SciKit Learn test_train_split module, which helps us avoid over- or under-fitting. 
    - Data was scaled using SciKit Learn's standard scaler.
+
+### Feature Selection
+To optimize the model we will create the feature set with the following features. The rationale behind this approach is because we saw when we ran the random forest classifier in the previous, that these features were given the highest importance. We started by dropping counties that have less than 10 zipcodes.
+- total_restaurants
+- total_reviews
+- avg_rating
+- total_delivery
+- total_pickup
+- total_rest_reservation
+- all the stars ratio:
+  - ratio_stars_1.0
+  - ratio_stars_1.5
+  - ratio_stars_2.0
+  - ratio_stars_2.5
+  - ratio_stars_3.0
+  - ratio_stars_3.5
+  - ratio_stars_4.0
+  - ratio_stars_4.5
+  - ratio_stars_5.0'
+- num_rest_types
 
 ### Initial Modeling
  - We used supervised machine learning classification models for our analysis as we are trying to solve a classification problem with our data, i.e. predicting an area's neighborhood tier based on the Yelp restaurant review data. Since we have a rather complex data set, we expected ensemble classifiers to perform better than simple logistic classifiers.
@@ -134,7 +160,7 @@ Other data exploration was done on Tableau: [Click here](https://public.tableau.
  - We played around with 5 different models, previously using 3 tiers rather than 2, Table 1 below shows some sample results from our initial models.
 
 
- **Table 1: Sample Results from initial ML Models - 3 Tiers, County Level
+ ### Table 1: Sample Results from initial ML Models - 3 Tiers, County Level
 
 
 |Model|Accuracy Score|Weighted F1 Score|Tier 1 Precision|Tier 1 Recall|Tier 2 Precision|Tier 2 Recall|Tier 3 Precision|Tier 3 Recall|
@@ -161,6 +187,15 @@ Model Comparison: Random Forest Model with 67.47% accuracy score and 67.33% F1 s
 ![image](https://user-images.githubusercontent.com/92613639/162113723-681dbe1a-2864-4136-a1ab-639c4cf402ce.png)
 
 Random Forest Model Evaluation:
+
+Limitations:
+- Requires more computational power and resources, due to the number of trees is creates by default into the Python sklearn library.
+Benefits:
+- Handles non-linear parameters very efficiently.
+- Works well for classification problems.
+- Reduces the risk of overfitting, while reducing variance, causing an increase in accuracy.
+
+Metrics:
 - Plot feature importance: The most influential features driving the prediction as you can see are Total Reviews, Total Price, Average Restaurant Rating, Total Restaurants Delivery and Pickup, and Total number of Restaurant categories follow.
 ![image](https://user-images.githubusercontent.com/92613639/162113939-0b5db904-bd6c-4f0c-ab23-838c6be9d4a9.png)
 
@@ -175,6 +210,8 @@ Random Forest Model Evaluation:
 - ROC Curve: ROC stands for curves receiver operating characteristic curve. It illustrates in a binary classifier system the discrimination threshold created by plotting the true positive rate vs false positive rate. The roc_auc_score always runs from 0 to 1, and is sorting predictive possibilities. 0.5 is the baseline for random guessing, so you want to always get above 0.5. The Area Under the Curve (AUC) is the measure of the ability of a classifier to distinguish between classes and is used as a summary of the ROC curve. The higher the AUC, the better the performance of the model at distinguishing between the positive and negative classes. Area under the curve for the Random Forest Model is 73% which is a good score for the model.
 
 ![image](https://user-images.githubusercontent.com/92613639/162114184-402b6b5c-2691-4e6c-9d1a-675fefbe6ebc.png)
+
+
 
 
 ## 5. Results and conclusions 
