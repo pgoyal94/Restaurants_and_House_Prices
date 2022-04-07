@@ -110,15 +110,15 @@ Other data exploration was done in Tableau: [Click here](https://public.tableau.
 
 ![image](https://user-images.githubusercontent.com/92613639/162111236-8e954a23-1c03-48d3-a805-d1f74acfa656.png)
 
-2. Tier 1 vs. Tier 2 Restaurant Categories: The top Tier 1 Neighborhood Restaurant categories was comapared to Tier 2 Neighborhood restaurant categories. We see that Tier 1 Neighborhoods have significantly more cafes (includes coffeeshops), sandwiches bars(cocktail bars, sports bars etc), brunch, Italian, French, Japanese and Mediterranean restaurant categories. Whereas Tier 2 Neighborhoods have more Latin American, Mexican, Chinese, fast food(burgers, chicken wings, hot dogs, etc.) categories. Interestingly enough, pzza,which is considered fast food in United States,is in larger numbers in Tier1 Neighborhoods.
+2. Tier 1 vs. Tier 2 Restaurant Categories: The top Tier 1 Neighborhood Restaurant categories was comapared to Tier 2 Neighborhood restaurant categories. We saw that Tier 1 Neighborhoods had significantly more cafes (includes coffeeshops), sandwiches bars(cocktail bars, sports bars etc), brunch, Italian, French, Japanese and Mediterranean restaurant categories. Whereas Tier 2 Neighborhoods had more Latin American, Mexican, Chinese, fast food(burgers, chicken wings, hot dogs, etc.) categories. Interestingly enough, pizza, which is considered fast food in the United States, was more abundant in Tier 1 Neighborhoods.
 
 ![image](https://user-images.githubusercontent.com/92613639/162111304-cdf0411e-b72d-490b-b916-0aef3d96cde2.png)
 
-3. Review Counts by Yelp Stars: Tier1 has more reviews than Tier2 and for both categories having a similar distribution centered around 3.5-4.5 Yelp stars.
+3. Review Counts by Yelp Stars: Tier 1 had more reviews than Tier 2, and both categories had a similar distribution, centered around 3.5-4.5 Yelp stars.
 
 ![image](https://user-images.githubusercontent.com/92613639/162111203-3c025ef0-b9f3-48e9-83b0-62638be15ec7.png)
 
-4. Word Cloud: The frequency of restaurant categories in a visual wordcloud. The resulting wordcloud shows that “tradamerican” is the most common word based on its size. However, “Burgers” is not the first most frequent word as was previously shown from the word count. We can see that certain two-word items are included, such as “Wine Bars." The default for the WordCloud is to consider bigrams (tokens of two words) in the frequency counts. The effect of this parameter is to consider cases of “Wine Bars” as distinct from “Bars.”
+4. Word Cloud: The frequency of restaurant categories in a visual wordcloud. The resulting wordcloud shows that “tradamerican” was the most common word based on its size. We saw that certain two-word items are included, such as “Wine Bars." The default for the WordCloud is to consider bigrams (tokens of two words) in the frequency counts. The effect of this parameter is to consider cases of “Wine Bars” as distinct from “Bars.”
 
 ![image](/Final/Resources_final/wordCloud.png)
 
@@ -128,7 +128,7 @@ Other data exploration was done in Tableau: [Click here](https://public.tableau.
 
 
 ## [Machine Learning]()
-We will use five machine learning models to determine which can give the an accurate result.
+We used five machine learning models to determine which gave the most accurate result.
 - Logistic Regression
 - Random Forest
 - Adaboost
@@ -138,11 +138,11 @@ We will use five machine learning models to determine which can give the an accu
 ### Feature Engineering, Data Splitting, and Scaling
    - Neighborhood tiers was used as the target variable.   
    - Features for modeling were selected from the merged restaurant and housing data based on restaurant characteristics such as total number of reviews, ratings, categories, etc. All location variables and the 2021 housing prices were dropped.
-   - We split our data using the SciKit Learn test_train_split module, which helps us avoid over- or under-fitting. 
+   - We split our data using the SciKit Learn test_train_split module, which helped us avoid over- or under-fitting. 
    - Data was scaled using SciKit Learn's standard scaler.
 
 ### Feature Selection
-To optimize the model we will create the feature set with the following features. The rationale behind this approach is because we saw when we ran the random forest classifier in the previous, that these features were given the highest importance. We started by dropping counties that have less than 10 zipcodes.
+To optimize the model we created the feature set with the following features. The rationale behind this approach was that we noticed that the random forest classifier gave these features the highest importance. We started by dropping counties that had less than 10 zipcodes.
 - total_restaurants
 - total_reviews
 - avg_rating
@@ -162,9 +162,9 @@ To optimize the model we will create the feature set with the following features
 - num_rest_types
 
 ### Initial Modeling
- - We used supervised machine learning classification models for our analysis as we are trying to solve a classification problem with our data, i.e. predicting an area's neighborhood tier based on the Yelp restaurant review data. Since we have a rather complex data set, we expected ensemble classifiers to perform better than simple logistic classifiers.
- - During preliminary modeling, we including all restaurant category columns (expanded dummies for each category and category + star rating). This was over 400 columns, most of which contributed almost 0 to the output. Therefore, we reduced the restaurant features to aggregate data for total price categories, total star ratings, and number of restaurant types (See slide deck for details).
- - We played around with 5 different models, previously using 3 tiers rather than 2, Table 1 below shows some sample results from our initial models.
+ - We used supervised machine learning classification models for our analysis as we were trying to solve a classification problem with our data, i.e. predicting an area's neighborhood tier based on the Yelp restaurant review data. Since we had a rather complex dataset, we expected ensemble classifiers to perform better than simple logistic classifiers.
+ - During preliminary modeling, we included all restaurant category columns (expanded dummies for each category and category + star rating). This was over 400 columns, most of which contributed almost nothing to the output. Therefore, we reduced the restaurant features to aggregate data for total price categories, total star ratings, and number of restaurant types.
+ - We chose to begin with five different models and 3 tiers, rather than 2. Table 1 below shows some sample results from our initial models.
 
 
  ### Table 1: Sample Results from initial ML Models - 3 Tiers, County Level
@@ -179,7 +179,7 @@ To optimize the model we will create the feature set with the following features
 |Naive Bayes|30.4%|0.246|0.37|0.16|0.51|0.11|0.27|0.85|
 
 
-Due to the low accuracy scores in the initial modeling, we changed the the number of neighborhood tiers to 2, and made them based on the state median house prices rather than county. 
+Due to the low accuracy scores in the initial modeling, we changed the the number of neighborhood tiers to 2, and made them based on the state median house prices, rather than county. 
 
 
 ### Final Model Choice
