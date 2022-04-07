@@ -1,72 +1,173 @@
-# Restaurants and House Prices
+# Yelp Restaurants and House Prices
 
-### [Google Slides - Segment 3](https://docs.google.com/presentation/d/14StszvpA3k_Lv2KxDT2XQVPraBzJ3NBlnx0kZtt-SHQ/edit?usp=sharing)
+### [Final Presentation - Google Slides](https://docs.google.com/presentation/d/1VL1pErovXfj_fZwtjBl6Up0cRyxJ3M3iXg7sSbsMDSQ/edit?usp=sharing)
+- See slides for Project topic and reasoning
 - See slides for Description of data sources
+- See slides for Technologies used
 - See slides for Description of preliminary data exploration and preprocessing
 - See slides for Description of analysis, including:
   - Description of preliminary feature engineering and preliminary feature selection
   - Description of how data was split
-  - Explanation of model choice
-  - Current accuracy scores
-- See slides for description of technologies used.
+  - Explanation of model choice and accuracy scores
+- _Note: Please see speaker notes on slides for presentation rehearsal_
 
 
 ### Code
-- [Code for exploratory analysis and cleaning - housing data](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Final/Housing_data_cleaning)
-- [Code for exploratory analysis and cleaning - restaurant data](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Final/Restaurant_data_cleaning)
-- [Code for machine learning](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Final/ML_Final)
-- [Tableau Dashboard](https://public.tableau.com/app/profile/ryan.morin/viz/tableau_restaurants/RestaurantsHousePrices?publish=yes)
+1. [Data Extraction and Cleaning]()
+   - Housing data clean-up
+   - Restaurant data clean-up
+   - Merged and transformed dataset
+2. [Data Exploration]()
+3. [Machine Learning]()
+4. [Connection to AWS]()
+5. [Resources]()
+   - Contains Images folder, including image of ERD (database)
+6. [Segments]()
+   - _Note: Segments Folder contains all of the initial work, should not referenced for grading purposes._
+
+### [Tableau Interactive Dashboard](https://public.tableau.com/app/profile/ryan.morin/viz/tableau_restaurants/RestaurantsHousePrices?publish=yes)
+
 
 ---
 
-## 1. Introduction
-   We are looking at the relationship between house prices and restaurants in the area. We believe that areas where homes are more expensive, there may exist a larger variety of restaurants and that these restaurants may be ranked higher than restaurants in areas where homes are less expensive. 
+## Introduction
+   We looked at the relationship between house prices and restaurants in an area. We hypothesized that areas where homes are more expensive, there may exist a larger variety of restaurants and that these restaurants may be ranked higher than restaurants in areas where homes are less expensive. 
 
 
+### Technologies Used:
+- Python, Pandas, and Numpy
+- Scikit Learn
+- Jupyter Notebooks
+- Tableau
+- PostgreSQL
+- Amazon Relational Database Service (AWS)
 
-## 2. Description of the data sources
-   We pulled data from Yelp, Zillow, Redfin, and SimpleMaps for our main database. This gives us data about restaurants, including the types of restaurants, their ratings, number of reviews, etc. as well as house price data. The housing data sets included zip code (postal code in datasets), so that is what we used to define a neighborhood for the purposes of our analysis. SimpleMaps provided city and county information for the Redfin dataset.
+
+## Description of the data sources
+   We pulled data from Yelp, Zillow, Redfin, and SimpleMaps for our main database. This gave us data about restaurants, including the types of restaurants, their ratings, number of reviews, etc., as well as house price data. The housing data sets included zip code (postal code in datasets), which is what we used to define a neighborhood for the purposes of our analysis. SimpleMaps provided city and county information to augment the Redfin dataset so it could be merged with the Zillow dataset.
    
 _Note: "zip code" and "postal code" are used interchangably in this document._
 
+Restaurant Data:
+- [Yelp Fusion API](https://fusion.yelp.com/)
 
-## 3. Data exploration and processing
+Housing Data:
+- [Zillow](https://www.zillow.com/research/data/)
+- [Redfin](https://www.redfin.com/news/data-center/)
+- [SimpleMaps](https://simplemaps.com/data/us-counties)
 
-### Restaurant Data
-   - Data from Yelp was pulled from their Fusion API and downloaded as JSON. We pulled for businesses tagged as "Restaurants." Due to API download limits, we pulled up to 150 businesses across 13,988 zip codes for which we have housing price data.
-   - We cleaned the Yelp data set to extract any potentially useful restaurant characteristics for modeling. Additionally, location data such as city and state information was extracted for data preprocessing and visualization.
-   - Categories for each restaurant type were extracted. Dummies were created for each restaurant category and star ratings of each category for initial exploratory modeling. 
-   - Data for restaurants were aggregated by zip code. The total number of different types of restaurants were counted per zip code.
+
+## [Data Extraction and Cleaning]()
 
 ### Housing Data
-   - The Zillow data set, downloaded as a csv file, included housing price data from 2000 through 2022 by zip code. We kept only the 2021 data for our model as we were interested in the most current representative prices and data for 2022 is incomplete.
-   - The Redfin data listed weekly median housing prices by zip code for 2021 in csv format. We averaged the weekly prices for 2021. We also merged this dataset with city and county data from SimpleMaps to create consistent fields for the merged housing dataset.
+   - The Zillow dataset, downloaded as a CSV file, included housing price data from the year 2000 through 2022, by zip code. We kept only the 2021 data for our model as we were interested in the most current representative prices, as data for 2022 was still incomplete.
+   - The Redfin data listed weekly median housing prices by zip code for 2021 in CSV format. We averaged the weekly prices for 2021. We also merged this dataset with city and county data from SimpleMaps to create consistent fields for the merged housing dataset.
    - Additional location data such as city, state, and county names were kept for preprocessing and visualization.
 
+![image](https://user-images.githubusercontent.com/92613639/162107696-6b2c6454-7f4b-4712-8a6e-a1f7a7699f60.png)
+
+
+### Restaurant Data
+   - Data from Yelp was pulled from their Fusion API and downloaded as a JSON file. We pulled for businesses tagged as "Restaurants." Due to API download limits, we pulled up to 150 businesses across 13,988 zip codes, for which we had housing price data.
+   - We cleaned the Yelp dataset to extract any potentially useful restaurant characteristics for modeling. 
+   - Categories for each restaurant type were extracted. Dummies were created for each restaurant category and star ratings of each category for initial exploratory modeling. 
+   - Data for restaurants was aggregated by zip code. The total number of different types of restaurants was counted per zip code.
+
+![image](https://user-images.githubusercontent.com/92613639/162107982-f8921103-8a85-4aad-aa4a-4cc096fee84a.png)
+
+
 ### Merge and Preprocessing
-   - We joined the final cleaned Yelp and housing datasets on the postal code column using SQL to be able to analyze the data. This showed us, by postal code (zip code), what the median house prices were and what the types of restaurants, their review counts, their ratings were, etc.
-   - Finally, "neighborhood tiers" were created based on a multiplier calculated to eliminate the bias of housing prices in very different markets (e.g. San Francisco market versus rural Texas market where housing prices for equivalent homes would be very different). The median house price for each zip code was divided by average median price for each county (usually several zip codes). Cut offs for tiers was determined by calculating quantiles.
+   - We joined the final cleaned Yelp and housing datasets on the postal code column using SQL to be able to analyze the data. This showed us, by postal code (zip code), what the median house prices were and what the types of restaurants, their review counts, their ratings, etc., were.
+
+![image](https://user-images.githubusercontent.com/92613639/162108096-3b5d6cd4-18c9-4cc8-b1da-e82660751621.png)
+
+   - Next, "neighborhood tiers" were created based on a multiplier calculated to eliminate the bias of housing prices in very different markets. House prices in every state and city are very different across the country, for example, house prices for similar size/type houses in San Jose, CA and Tucson, AZ are dramatically different. The median house price for each zip code was divided by average house price for each state. 
+     * We will first calculated the mean house price group by state
+     * Next, we divided each postal code's house price by the corresponding state's mean house price
+     * This gave us a multiplier for each house price in the dataframe
+    
+   - Finally, we categorized the neighborhood indicators based on the average house price by state.
+     - Tier 1: Above average house price
+     - Tier 2: Below average house price
 
 
-## 4. Data analysis (ML modeling)
+## [Connection to AWS]()
+All of the above preprocessed data was loaded into an AWS database. The data exploration, machine learning model, and Tableau visualization pull data directly from AWS. AWS acts as a powerful tool for storing large amounts of data that can be shared across numerous users. 
 
-### Feature Engineering and Data Splitting
+AWS included the following tables:
+- Final Yelp Zipcode Summary
+- Final Zipcode Category Stars Average
+- Final Zipcode Categories Sum
+- Neighborhood 2 Tiers by State Stars Categories
+- Neighborhood Two Tier State Final
+
+## [Data Exploration]()
+We explored the preprocessed data from the raw Yelp and housing datasets to find patterns and trends. This data was also used for the machine learning models to predict the type of neighborhoods: above average neighborhood tier or below average neighborhood tier, defined by the state's average house price.
+
+Other data exploration was done in Tableau: [Click here](https://public.tableau.com/app/profile/ryan.morin/viz/tableau_restaurants/RestaurantsHousePrices?publish=yes)  to see our interactive map based on neighborhood tiers and our project analysis.
+
+1. Correlation Matrix: A correlation matrix is a table showing correlation coefficients between variables. Each cell in the table shows the correlation between two variables. A correlation matrix is used to summarize data, as an input into a more advanced analysis, and as a diagnostic for advanced analyses.
+
+![image](https://user-images.githubusercontent.com/92613639/162111236-8e954a23-1c03-48d3-a805-d1f74acfa656.png)
+
+2. Tier 1 vs. Tier 2 Restaurant Categories: The top Tier 1 Neighborhood Restaurant categories was comapared to Tier 2 Neighborhood restaurant categories. We saw that Tier 1 Neighborhoods had significantly more cafes (includes coffeeshops), sandwiches bars(cocktail bars, sports bars etc), brunch, Italian, French, Japanese and Mediterranean restaurant categories. Whereas Tier 2 Neighborhoods had more Latin American, Mexican, Chinese, fast food(burgers, chicken wings, hot dogs, etc.) categories. Interestingly enough, pizza, which is considered fast food in the United States, was more abundant in Tier 1 Neighborhoods.
+
+![image](https://user-images.githubusercontent.com/92613639/162111304-cdf0411e-b72d-490b-b916-0aef3d96cde2.png)
+
+3. Review Counts by Yelp Stars: Tier 1 had more reviews than Tier 2, and both categories had a similar distribution, centered around 3.5-4.5 Yelp stars.
+
+![image](https://user-images.githubusercontent.com/92613639/162111203-3c025ef0-b9f3-48e9-83b0-62638be15ec7.png)
+
+4. Word Cloud: The frequency of restaurant categories in a visual wordcloud. The resulting wordcloud shows that “tradamerican” was the most common word based on its size. We saw that certain two-word items are included, such as “Wine Bars." The default for the WordCloud is to consider bigrams (tokens of two words) in the frequency counts. The effect of this parameter is to consider cases of “Wine Bars” as distinct from “Bars.”
+
+![image](/Final/Resources_final/wordCloud.png)
+
+5. Tableau Interactive Dashboard
+
+![image](https://user-images.githubusercontent.com/92613639/162112129-56b8b556-e7ed-47ed-97cd-c2a30efafd8c.png)
+
+
+## [Machine Learning]()
+We used five machine learning models to determine which gave the most accurate result.
+- Logistic Regression
+- Random Forest
+- Adaboost
+- Gradient Boost
+- Naive Bayes
+
+### Feature Engineering, Data Splitting, and Scaling
    - Neighborhood tiers was used as the target variable.   
    - Features for modeling were selected from the merged restaurant and housing data based on restaurant characteristics such as total number of reviews, ratings, categories, etc. All location variables and the 2021 housing prices were dropped.
-   - We split our data using the SciKit Learn test_train_split module, which helps us avoid over-or under-fitting. 
+   - We split our data using the SciKit Learn test_train_split module, which helped us avoid over- or under-fitting. 
    - Data was scaled using SciKit Learn's standard scaler.
 
+### Feature Selection
+To optimize the model we created the feature set with the following features. The rationale behind this approach was that we noticed that the random forest classifier gave these features the highest importance. We started by dropping counties that had less than 10 zipcodes.
+- total_restaurants
+- total_reviews
+- avg_rating
+- total_delivery
+- total_pickup
+- total_rest_reservation
+- all the stars ratio:
+  - ratio_stars_1.0
+  - ratio_stars_1.5
+  - ratio_stars_2.0
+  - ratio_stars_2.5
+  - ratio_stars_3.0
+  - ratio_stars_3.5
+  - ratio_stars_4.0
+  - ratio_stars_4.5
+  - ratio_stars_5.0'
+- num_rest_types
+
 ### Initial Modeling
- - We used supervised machine learning classification models for our analysis as we are trying to solve a classification problem with our data, i.e. predicting an area's neighborhood tier based on the Yelp restaurant review data. Since we have a rather complex data set, we expected ensemble classifiers to perform better than simple logistic classifiers.
- - We modeled based on three neighborhood tiers. Tiers were determined as such:
-   - Tier 1 = < 25% quantile
-   - Tier 2 = 25-75% 
-   - Tier 3 = > 75% quantile
- - During preliminary modeling, we including all restaurant category columns (expanded dummies for each category and category + star rating). This was over 400 columns, most of which contributed almost 0 to the output. Therefore, we reduced the restaurant features to aggregate data for total price categories, total star ratings, and number of restaurant types (See slide deck for details).
- - Table 1 below shows some sample results from our initial models.
+ - We used supervised machine learning classification models for our analysis as we were trying to solve a classification problem with our data, i.e. predicting an area's neighborhood tier based on the Yelp restaurant review data. Since we had a rather complex dataset, we expected ensemble classifiers to perform better than simple logistic classifiers.
+ - During preliminary modeling, we included all restaurant category columns (expanded dummies for each category and category + star rating). This was over 400 columns, most of which contributed almost nothing to the output. Therefore, we reduced the restaurant features to aggregate data for total price categories, total star ratings, and number of restaurant types.
+ - We chose to begin with five different models and 3 tiers, rather than 2. Table 1 below shows some sample results from our initial models.
 
 
- **Table 1: Sample Results from initial ML Models - [3 Tiers, County Level](https://github.com/pgoyal94/Restaurants_and_House_Prices/blob/main/Final/ML_Final/ML_Model_Trials/ML_optimization_county_3_tier%20.ipynb)**
+ ### Table 1: Sample Results from initial ML Models - 3 Tiers, County Level
 
 
 |Model|Accuracy Score|Weighted F1 Score|Tier 1 Precision|Tier 1 Recall|Tier 2 Precision|Tier 2 Recall|Tier 3 Precision|Tier 3 Recall|
@@ -78,27 +179,61 @@ _Note: "zip code" and "postal code" are used interchangably in this document._
 |Naive Bayes|30.4%|0.246|0.37|0.16|0.51|0.11|0.27|0.85|
 
 
+Due to the low accuracy scores in the initial modeling, we changed the the number of neighborhood tiers to 2, and made them based on the state median house prices, rather than county. 
 
 
-### Model Choice
+### Final Model Choice
+Our initial feature selection had 440 features which we whittled down to 21 using feature importance from the initial Random Forest models. The most influential features driving the prediction were total reviews, total price, average restaurant rating, total restaurants delivery and pickup, and total number of restaurant categories. Initially, the highest accuracy that our machine learning models gave us was 52%. After decreasing to 21 features, we got an accuracy of 62% which we optimized using GridSearch CV to tune the models hyperparameters.
 
-We currently believe that Logistic Regression will be our final model as it consistently yielded some of our best results, although still needing improvement, regardless of the number of features. Given the low accuracy score, we narrowed our features set to the top 13 features that contributed to the outputs during initial modeling. 
+ - We modeled based on two neighborhood tiers. Tiers were determined as such:
+   - Tier 1: >0.89 (above average house prices)
+   - Tier 2: <=0.89 (below average house prices)
 
-Logistic Regression:
-   - Can be used as a benchmark model.
-   - Pro: Less prone to overfitting, assuming low dimension dataset. 
-   - Pro: It's computationally efficient in that it does not require large amounts of memory or resources. It scales to large datasets well as it processes quickly and efficiently.
-   - Con: It assumes some linear relationship between the dependent and independent variables. For our dataset, we cannot be sure that this assumption is correct due to the large number of features.
+Model Comparison: The classification report shows a representation of the main classification metrics on a per-class basis. This gives a deeper intuition of the classifier behavior over global accuracy which can mask functional weaknesses in one class of a multiclass problem. 
+
+Random Forest Model (67.47% accuracy score and 67.33% F1 score) performed the better than the other models.
+
+![image](https://user-images.githubusercontent.com/92613639/162113723-681dbe1a-2864-4136-a1ab-639c4cf402ce.png)
+
+Random Forest Model Evaluation:
+
+Limitations:
+- Requires more computational power and resources, due to the number of trees is creates by default into the Python sklearn library.
+Benefits:
+- Handles non-linear parameters very efficiently.
+- Works well for classification problems.
+- Reduces the risk of overfitting, while reducing variance, causing an increase in accuracy.
+
+Metrics:
+- Plot feature importance: The most influential features driving the prediction as you can see are Total Reviews, Total Price, Average Restaurant Rating, Total Restaurants Delivery and Pickup, and Total number of Restaurant categories.
+
+![image](https://user-images.githubusercontent.com/92613639/162113939-0b5db904-bd6c-4f0c-ab23-838c6be9d4a9.png)
+
+- Confusion Matrix for Random Forest Classifier: A confusion matrix is a summary of prediction results on a classification problem. The number of correct and incorrect predictions are summarized with count values and broken down by each class. Approximately 67% of True Positives and True Negatives were predicted accurately by the model.
+
+![image](https://user-images.githubusercontent.com/92613639/162113977-1cd161b2-c451-4715-81d4-e574b2f1c4ca.png)
+
+- Baseline for evaluation of Random Forest model accuracy:
+  We have seen that the Random Forest Classifier was a good model for this data. But, _was our model really better than just guessing?_
+
+![image](https://user-images.githubusercontent.com/92613639/162114097-c7ff5164-2af2-4941-a312-38e5ac878b6f.png)
+
+- ROC Curve: ROC stands for curves receiver operating characteristic curve. It illustrates in a binary classifier system the discrimination threshold created by plotting the true positive rate vs false positive rate. The roc_auc_score always runs from 0 to 1, and is sorting predictive possibilities. 0.5 is the baseline for random guessing, so the goal is to always get above 0.5. The Area Under the Curve (AUC) is the measure of the ability of a classifier to distinguish between classes and is used as a summary of the ROC curve. The higher the AUC, the better the performance of the model at distinguishing between the positive and negative classes. Area under the curve for the Random Forest Model was 73%, which is a good score for the model.
+
+![image](https://user-images.githubusercontent.com/92613639/162114184-402b6b5c-2691-4e6c-9d1a-675fefbe6ebc.png)
+
 
 
 ## 5. Results and conclusions 
-   - Based on our preliminary data of the academic Yelp data set, we see that there is a weak correlation, at best. We show a map of the United States, showing the zip codes included in the analysis characterized by their neighborhood tier and diversity of restaurants in the area. The hypotheses would indicate that the larger circles would all be one color, and the smaller circles would all be a seperate color, however looking at the ML model and map, we see that that is not necessarily the case. We see that our hypotheses have been debunked for the most part.
+We can see that the Random Forest Classifier gave us the best results, with an accuracy of 67.47%% and an F1 score of 67.33%. The most influential features driving the prediction were Total Reviews, Total Price, Average Restaurant Rating, Total Restaurants Delivery and Pickup, and Total number of Restaurant categories.
 
-Sample Tableau Visualization - Tiers and Restaurant Diversity by Zip Code:
+_Note: We were using only a sample of the Yelp data in a neighborhood. In reality, the number of restaurant categories could be greater for a zipcode._
 
-![image](https://user-images.githubusercontent.com/92613639/161402016-3d3a5bcd-d48d-4f63-b395-cacafcbdd1cd.png)
+Inspite of the limitations of the data, the model accuracy prediction was ~67%. So we cautiously concluded that diversity of restaurants in an area, the type of services they offer, and the total reviews could predict the type of neighborhood, classified on average house price in the area.
 
 
 ## 6. Recommendations for future analysis 
-   - We believe prediction of house price may be more accurate when including demographic data by zip code. We will be pulling New York City census data to do a small scale analysis to suggest if the above hypothesis holds true to then make that recommendation more broadly. Additionally, things like home attributes (number of bedrooms/bathrooms, home square footage, lot size, school rankings, etc.) were not included in the data sets we pulled, but could be additionally helpful in normalizing house price to better understand how home price and restaurant diversity are related.
-   - Given the low accuracy scores in our initial models during segment 2 of the project, we plan to change our target variable to two tiers only (Tier 1 = above county average, Tier 2 = below county average). 
+   - We believe prediction of house price may be more accurate when including demographic data by zip code. 
+   - Additionally, things like home attributes (number of bedrooms/bathrooms, home square footage, lot size, school rankings, etc.) were not included in the data sets we pulled, but could be additionally helpful in normalizing house price to better understand how home price and restaurant diversity are related.
+   - We should do an analysis more granularly, for example, get all the restaurants for a borough in a city, like Bronx in NYC.
+   - Value of doing such an analysis: Understanding the type of neighborhood can help restaurants figure out where their restaurants will be successful. It also helps them in pricing decisions as higher priced house demographic have higher disposable income.
