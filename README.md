@@ -3,13 +3,13 @@
 ### [Final Presentation - Google Slides](https://docs.google.com/presentation/d/1VL1pErovXfj_fZwtjBl6Up0cRyxJ3M3iXg7sSbsMDSQ/edit?usp=sharing)
 - See slides for Project topic and reasoning
 - See slides for Description of data sources
+- See slides for Technologies used
 - See slides for Description of preliminary data exploration and preprocessing
 - See slides for Description of analysis, including:
   - Description of preliminary feature engineering and preliminary feature selection
   - Description of how data was split
   - Explanation of model choice
   - Current accuracy scores
-- See slides for description of technologies used.
 - _Note: Please see speaker notes on slides for presentation rehearsal_
 
 
@@ -34,6 +34,7 @@
 ## Introduction
    We are looking at the relationship between house prices and restaurants in the area. We believe that areas where homes are more expensive, there may exist a larger variety of restaurants and that these restaurants may be ranked higher than restaurants in areas where homes are less expensive. 
 
+
 ### Technologies Used:
 - Python, Pandas, and Numpy
 - Scikit Learn
@@ -49,12 +50,12 @@
 _Note: "zip code" and "postal code" are used interchangably in this document._
 
 Restaurant Data:
-- Yelp Fusion API: https://fusion.yelp.com/ 
+- [Yelp Fusion API](https://fusion.yelp.com/)
 
 Housing Data:
-- Zillow: https://www.zillow.com/research/data/
-- Redfin:  https://www.redfin.com/news/data-center/
-- SimpleMaps: https://simplemaps.com/data/us-counties
+- [Zillow](https://www.zillow.com/research/data/)
+- [Redfin](https://www.redfin.com/news/data-center/)
+- [SimpleMaps](https://simplemaps.com/data/us-counties)
 
 
 ## [Data Extraction and Cleaning]()
@@ -221,7 +222,6 @@ Metrics:
 - ROC Curve: ROC stands for curves receiver operating characteristic curve. It illustrates in a binary classifier system the discrimination threshold created by plotting the true positive rate vs false positive rate. The roc_auc_score always runs from 0 to 1, and is sorting predictive possibilities. 0.5 is the baseline for random guessing, so you want to always get above 0.5. The Area Under the Curve (AUC) is the measure of the ability of a classifier to distinguish between classes and is used as a summary of the ROC curve. The higher the AUC, the better the performance of the model at distinguishing between the positive and negative classes. Area under the curve for the Random Forest Model is 73% which is a good score for the model.
 
 ![image](https://user-images.githubusercontent.com/92613639/162114184-402b6b5c-2691-4e6c-9d1a-675fefbe6ebc.png)
-
 
 
 
