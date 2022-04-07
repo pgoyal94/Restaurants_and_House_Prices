@@ -183,7 +183,7 @@ Due to the low accuracy scores in the initial modeling, we changed the the numbe
 
 
 ### Final Model Choice
-Our initial feature selection had 440 features which we whittled it down to 21 features using feature importance from the initial Random Forest models. The most influential features driving the prediction as you can see are Total Reviews, Total Price, Average Restaurant Rating, Total Restaurants Delivery and Pickup, and Total number of Restaurant categories follow. The highest accuracy that our machine learning models gave us initially was 52%. After dropping to 21 features, we got an accuracy of 62 % which we optimized using GridSearch CV to tune the models hyperparameters.
+Our initial feature selection had 440 features which we whittled down to 21 using feature importance from the initial Random Forest models. The most influential features driving the prediction were total reviews, total price, average restaurant rating, total restaurants delivery and pickup, and total number of restaurant categories. Initially, the highest accuracy that our machine learning models gave us was 52%. After decreasing to 21 features, we got an accuracy of 62% which we optimized using GridSearch CV to tune the models hyperparameters.
 
  - We modeled based on two neighborhood tiers. Tiers were determined as such:
    - Tier 1: >0.89 (above average house prices)
@@ -191,7 +191,7 @@ Our initial feature selection had 440 features which we whittled it down to 21 f
 
 Model Comparison: The classification report shows a representation of the main classification metrics on a per-class basis. This gives a deeper intuition of the classifier behavior over global accuracy which can mask functional weaknesses in one class of a multiclass problem. 
 
-Random Forest Model with 67.47% accuracy score and 67.33% F1 score perfoms the better than the other models.
+Random Forest Model (67.47% accuracy score and 67.33% F1 score) performed the better than the other models.
 
 ![image](https://user-images.githubusercontent.com/92613639/162113723-681dbe1a-2864-4136-a1ab-639c4cf402ce.png)
 
@@ -205,35 +205,35 @@ Benefits:
 - Reduces the risk of overfitting, while reducing variance, causing an increase in accuracy.
 
 Metrics:
-- Plot feature importance: The most influential features driving the prediction as you can see are Total Reviews, Total Price, Average Restaurant Rating, Total Restaurants Delivery and Pickup, and Total number of Restaurant categories follow.
+- Plot feature importance: The most influential features driving the prediction as you can see are Total Reviews, Total Price, Average Restaurant Rating, Total Restaurants Delivery and Pickup, and Total number of Restaurant categories.
 
 ![image](https://user-images.githubusercontent.com/92613639/162113939-0b5db904-bd6c-4f0c-ab23-838c6be9d4a9.png)
 
-- Confusion Matrix for Random Forest Classifier: A confusion matrix is a summary of prediction results on a classification problem. The number of correct and incorrect predictions are summarized with count values and broken down by each class. Approximately 67% of True Positives and True Negatives are predicted accurately by the model.
+- Confusion Matrix for Random Forest Classifier: A confusion matrix is a summary of prediction results on a classification problem. The number of correct and incorrect predictions are summarized with count values and broken down by each class. Approximately 67% of True Positives and True Negatives were predicted accurately by the model.
 
 ![image](https://user-images.githubusercontent.com/92613639/162113977-1cd161b2-c451-4715-81d4-e574b2f1c4ca.png)
 
-- Baseline: for evaluation of Random Forest model accuracy
-  We've seen that the Random Forest Classifier is a good model for this data. But, is our model really better than just guessing?
+- Baseline for evaluation of Random Forest model accuracy:
+  We have seen that the Random Forest Classifier was a good model for this data. But, _was our model really better than just guessing?_
 
 ![image](https://user-images.githubusercontent.com/92613639/162114097-c7ff5164-2af2-4941-a312-38e5ac878b6f.png)
 
-- ROC Curve: ROC stands for curves receiver operating characteristic curve. It illustrates in a binary classifier system the discrimination threshold created by plotting the true positive rate vs false positive rate. The roc_auc_score always runs from 0 to 1, and is sorting predictive possibilities. 0.5 is the baseline for random guessing, so you want to always get above 0.5. The Area Under the Curve (AUC) is the measure of the ability of a classifier to distinguish between classes and is used as a summary of the ROC curve. The higher the AUC, the better the performance of the model at distinguishing between the positive and negative classes. Area under the curve for the Random Forest Model is 73% which is a good score for the model.
+- ROC Curve: ROC stands for curves receiver operating characteristic curve. It illustrates in a binary classifier system the discrimination threshold created by plotting the true positive rate vs false positive rate. The roc_auc_score always runs from 0 to 1, and is sorting predictive possibilities. 0.5 is the baseline for random guessing, so the goal is to always get above 0.5. The Area Under the Curve (AUC) is the measure of the ability of a classifier to distinguish between classes and is used as a summary of the ROC curve. The higher the AUC, the better the performance of the model at distinguishing between the positive and negative classes. Area under the curve for the Random Forest Model was 73%, which is a good score for the model.
 
 ![image](https://user-images.githubusercontent.com/92613639/162114184-402b6b5c-2691-4e6c-9d1a-675fefbe6ebc.png)
 
 
 
 ## 5. Results and conclusions 
-We can see that the Random Forest Classifier gives the best results with an accuracy of 67.47%% and an F1 score of 67.33%. And the most influential features driving the prediction are Total Reviews, Total Price, Average Restaurant Rating, Total Restaurants Delivery and Pickup, and Total number of Restaurant categories follow.
+We can see that the Random Forest Classifier gave us the best results, with an accuracy of 67.47%% and an F1 score of 67.33%. The most influential features driving the prediction were Total Reviews, Total Price, Average Restaurant Rating, Total Restaurants Delivery and Pickup, and Total number of Restaurant categories.
 
-_Note: We are using only a sample of the Yelp data in a neighborhood. In reality, the number of restaurant categories is/can be more for a zipcode._
+_Note: We were using only a sample of the Yelp data in a neighborhood. In reality, the number of restaurant categories could be greater for a zipcode._
 
-Inspite of the limitations of the data, the model accuracy prediction is ~67%. So we cautiously conclude that diversity of restaurants in an area, the type of services they offer and the total reviews can predict the type of neighborhood, classified on median houseprice in the area.
+Inspite of the limitations of the data, the model accuracy prediction was ~67%. So we cautiously concluded that diversity of restaurants in an area, the type of services they offer, and the total reviews could predict the type of neighborhood, classified on average house price in the area.
 
 
 ## 6. Recommendations for future analysis 
    - We believe prediction of house price may be more accurate when including demographic data by zip code. 
    - Additionally, things like home attributes (number of bedrooms/bathrooms, home square footage, lot size, school rankings, etc.) were not included in the data sets we pulled, but could be additionally helpful in normalizing house price to better understand how home price and restaurant diversity are related.
-   - We should do an analysis more granuraliy, for example, get all the restaurnts for a borough in a city, like Bronx in NYC.
+   - We should do an analysis more granularly, for example, get all the restaurants for a borough in a city, like Bronx in NYC.
    - Value of doing such an analysis: Understanding the type of neighborhood can help restaurants figure out where their restaurants will be successful. It also helps them in pricing decisions as higher priced house demographic have higher disposable income.
