@@ -109,6 +109,9 @@ Other data exploration was done on Tableau: [Click here](https://public.tableau.
 
 ![image](https://user-images.githubusercontent.com/92613639/162111203-3c025ef0-b9f3-48e9-83b0-62638be15ec7.png)
 
+4. Word Cloud: The frequency of restaurant categories in a visual wordcloud. The resulting wordcloud shows that “tradamerican” is the most common word based on its size. However, “Burgers” is not the first most frequent word as was previously shown from the word count. We can see that certain two-word items are included, such as “Wine Bars." The default for the WordCloud is to consider bigrams (tokens of two words) in the frequency counts. The effect of this parameter is to consider cases of “Wine Bars” as distinct from “Bars.”
+
+![image](/Final/Resources_final/wordCloud.png)
 
 ## [Machine Learning]()
 
