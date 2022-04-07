@@ -22,7 +22,7 @@
 3. [Machine Learning]()
 4. [Connection to AWS]()
 5. [Resources]()
-   - Contains Images folder
+   - Contains Images folder, including image of ERD (database)
 6. [Segments]()
    - _Note: Segments Folder contains all of the initial work, should not referenced for grading purposes._
 
