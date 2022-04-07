@@ -77,17 +77,21 @@ Housing Data:
 
 ![image](https://user-images.githubusercontent.com/92613639/162108096-3b5d6cd4-18c9-4cc8-b1da-e82660751621.png)
 
-   - Finally, "neighborhood tiers" were created based on a multiplier calculated to eliminate the bias of housing prices in very different markets (e.g. San Francisco market versus rural Texas market where housing prices for equivalent homes would be very different). The median house price for each zip code was divided by average median price for each state. 
-
-![image](https://user-images.githubusercontent.com/92613639/162108525-0a59a706-5cb7-4af1-b796-5618e1903728.png)
+   - Next, "neighborhood tiers" were created based on a multiplier calculated to eliminate the bias of housing prices in very different markets. House prices in every state and city are very different accross the country, for example, house prices for similar size/type houses in San Jose, CA and Tucson, AZ are dramatically different. The median house price for each zip code was divided by average median price for each state. 
+     * We will first calculate the mean house price group by State
+     * Next we will divide each postal_code's house price by the corresponding State's mean house price
+     * This gives us a multiplier for each house price in the dataframe.
+    
+   - Finally, we will determine the median quantiles and max of the neighborhood indicators to categorize the neighborhood indicators based on the bins.
+     - Tier 1: Above average house price
+     - Tier 2: Below average house price
 
 
 ## [Connection to AWS]()
 All of the above preprocessed data was loaded into an AWS database. The Data Exploration, Machine Learning model, and Tableau Visualization pull data directly from AWS. AWS acts as a powerful tool for storing large amounts of data that can be shared across numerous users. 
 
 ## [Data Exploration]()
-We explored the 
-ata cleaned from the raw Yelp and Housing datasets to find patterns and trends. This data will be used for the Machine Learning Models to predict the type of neighborhoods : Above average Neighborhood tier or Below average neighborhood tier defined by the States median house price.
+We explored the preprocessed data from the raw Yelp and Housing datasets to find patterns and trends. This data was also used for the Machine Learning Models to predict the type of neighborhoods: above average neighborhood tier or below average neighborhood tier, defined by the state's median house price.
 
 Other data exploration was done on Tableau : Link where you can see our interactive map based on neighborhood tiers and our project analysis.
 
