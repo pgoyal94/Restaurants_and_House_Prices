@@ -13,16 +13,16 @@
 
 
 ### Code
-1. [Data Extraction and Cleaning]()
+1. [Data Extraction and Cleaning](/1._Data_Extraction_and_Cleaning)
    - Housing data clean-up
    - Restaurant data clean-up
    - Merged and transformed dataset
-2. [Data Exploration]()
-3. [Machine Learning]()
-4. [Connection to AWS]()
-5. [Resources]()
+2. [Data Exploration](/2._Data_Exploration)
+3. [Machine Learning](/3._Machine_Learning)
+4. [Connection to AWS](/4._Connection_to_AWS_Database)
+5. [Resources](/Resources)
    - Contains Images folder, including image of ERD (database)
-6. [Segments]()
+6. [Segments](/Segments)
    - _Note: Segments Folder contains all of the initial work, should not referenced for grading purposes._
 
 ### [Tableau Interactive Dashboard](https://public.tableau.com/app/profile/ryan.morin/viz/tableau_restaurants/RestaurantsHousePrices?publish=yes)
@@ -57,14 +57,14 @@ Housing Data:
 - [SimpleMaps](https://simplemaps.com/data/us-counties)
 
 
-## [Data Extraction and Cleaning]()
+## [Data Extraction and Cleaning](/1._Data_Extraction_and_Cleaning)
 
 ### Housing Data
    - The Zillow dataset, downloaded as a CSV file, included housing price data from the year 2000 through 2022, by zip code. We kept only the 2021 data for our model as we were interested in the most current representative prices, as data for 2022 was still incomplete.
    - The Redfin data listed weekly median housing prices by zip code for 2021 in CSV format. We averaged the weekly prices for 2021. We also merged this dataset with city and county data from SimpleMaps to create consistent fields for the merged housing dataset.
    - Additional location data such as city, state, and county names were kept for preprocessing and visualization.
 
-![image](https://user-images.githubusercontent.com/92613639/162107696-6b2c6454-7f4b-4712-8a6e-a1f7a7699f60.png)
+![Housing.png](/Resources/Images/Housing.png)
 
 
 ### Restaurant Data
@@ -73,13 +73,13 @@ Housing Data:
    - Categories for each restaurant type were extracted. Dummies were created for each restaurant category and star ratings of each category for initial exploratory modeling. 
    - Data for restaurants was aggregated by zip code. The total number of different types of restaurants was counted per zip code.
 
-![image](https://user-images.githubusercontent.com/92613639/162107982-f8921103-8a85-4aad-aa4a-4cc096fee84a.png)
+![Yelp_API_Pull.png](/Resources/Images/Yelp_API_Pull.png)
 
 
 ### Merge and Preprocessing
    - We joined the final cleaned Yelp and housing datasets on the postal code column using SQL to be able to analyze the data. This showed us, by postal code (zip code), what the median house prices were and what the types of restaurants, their review counts, their ratings, etc., were.
 
-![image](https://user-images.githubusercontent.com/92613639/162108096-3b5d6cd4-18c9-4cc8-b1da-e82660751621.png)
+![Merged_Data.png](/Resources/Images/Merged_Data.png)
 
    - Next, "neighborhood tiers" were created based on a multiplier calculated to eliminate the bias of housing prices in very different markets. House prices in every state and city are very different across the country, for example, house prices for similar size/type houses in San Jose, CA and Tucson, AZ are dramatically different. The median house price for each zip code was divided by average house price for each state. 
      * We will first calculated the mean house price group by state
@@ -91,7 +91,7 @@ Housing Data:
      - Tier 2: Below average house price
 
 
-## [Connection to AWS]()
+## [Connection to AWS](/4._Connection_to_AWS_Database)
 All of the above preprocessed data was loaded into an AWS database. The data exploration, machine learning model, and Tableau visualization pull data directly from AWS. AWS acts as a powerful tool for storing large amounts of data that can be shared across numerous users. 
 
 AWS included the following tables:
@@ -101,33 +101,33 @@ AWS included the following tables:
 - Neighborhood 2 Tiers by State Stars Categories
 - Neighborhood Two Tier State Final
 
-## [Data Exploration]()
+## [Data Exploration](/2._Data_Exploration)
 We explored the preprocessed data from the raw Yelp and housing datasets to find patterns and trends. This data was also used for the machine learning models to predict the type of neighborhoods: above average neighborhood tier or below average neighborhood tier, defined by the state's average house price.
 
 Other data exploration was done in Tableau: [Click here](https://public.tableau.com/app/profile/ryan.morin/viz/tableau_restaurants/RestaurantsHousePrices?publish=yes)  to see our interactive map based on neighborhood tiers and our project analysis.
 
 1. Correlation Matrix: A correlation matrix is a table showing correlation coefficients between variables. Each cell in the table shows the correlation between two variables. A correlation matrix is used to summarize data, as an input into a more advanced analysis, and as a diagnostic for advanced analyses.
 
-![image](https://user-images.githubusercontent.com/92613639/162111236-8e954a23-1c03-48d3-a805-d1f74acfa656.png)
+![CorrMatrix.png](/Resources/Images/CorrMatrix.png)
 
 2. Tier 1 vs. Tier 2 Restaurant Categories: The top Tier 1 Neighborhood Restaurant categories was comapared to Tier 2 Neighborhood restaurant categories. We saw that Tier 1 Neighborhoods had significantly more cafes (includes coffeeshops), sandwiches bars(cocktail bars, sports bars etc), brunch, Italian, French, Japanese and Mediterranean restaurant categories. Whereas Tier 2 Neighborhoods had more Latin American, Mexican, Chinese, fast food(burgers, chicken wings, hot dogs, etc.) categories. Interestingly enough, pizza, which is considered fast food in the United States, was more abundant in Tier 1 Neighborhoods.
 
-![image](https://user-images.githubusercontent.com/92613639/162111304-cdf0411e-b72d-490b-b916-0aef3d96cde2.png)
+![Tiers_Rest_Types.png](/Resources/Images/Tiers_Rest_Types.png)
 
 3. Review Counts by Yelp Stars: Tier 1 had more reviews than Tier 2, and both categories had a similar distribution, centered around 3.5-4.5 Yelp stars.
 
-![image](https://user-images.githubusercontent.com/92613639/162111203-3c025ef0-b9f3-48e9-83b0-62638be15ec7.png)
+![Count_Stars.png](/Resources/Images/Count_Stars.png)
 
 4. Word Cloud: The frequency of restaurant categories in a visual wordcloud. The resulting wordcloud shows that “tradamerican” was the most common word based on its size. We saw that certain two-word items are included, such as “Wine Bars." The default for the WordCloud is to consider bigrams (tokens of two words) in the frequency counts. The effect of this parameter is to consider cases of “Wine Bars” as distinct from “Bars.”
 
-![image](/Final/Resources_final/wordCloud.png)
+![wordCloud.png](/Resources/Images/wordCloud.png)
 
 5. Tableau Interactive Dashboard
 
-![image](https://user-images.githubusercontent.com/92613639/162112129-56b8b556-e7ed-47ed-97cd-c2a30efafd8c.png)
+![Tableau.png](/Resources/Images/Tableau.png)
 
 
-## [Machine Learning]()
+## [Machine Learning](/3._Machine_Learning)
 We used five machine learning models to determine which gave the most accurate result.
 - Logistic Regression
 - Random Forest
@@ -193,12 +193,13 @@ Model Comparison: The classification report shows a representation of the main c
 
 Random Forest Model (67.47% accuracy score and 67.33% F1 score) performed the better than the other models.
 
-![image](https://user-images.githubusercontent.com/92613639/162113723-681dbe1a-2864-4136-a1ab-639c4cf402ce.png)
+![Final_AccuracyScores.png](/Resources/Images/Final_AccuracyScores.png)
 
 Random Forest Model Evaluation:
 
 Limitations:
 - Requires more computational power and resources, due to the number of trees is creates by default into the Python sklearn library.
+
 Benefits:
 - Handles non-linear parameters very efficiently.
 - Works well for classification problems.
@@ -207,29 +208,30 @@ Benefits:
 Metrics:
 - Plot feature importance: The most influential features driving the prediction as you can see are Total Reviews, Total Price, Average Restaurant Rating, Total Restaurants Delivery and Pickup, and Total number of Restaurant categories.
 
-![image](https://user-images.githubusercontent.com/92613639/162113939-0b5db904-bd6c-4f0c-ab23-838c6be9d4a9.png)
+![Final_Feat_Imp.png](/Resources/Images/Final_Feat_Imp.png)
 
 - Confusion Matrix for Random Forest Classifier: A confusion matrix is a summary of prediction results on a classification problem. The number of correct and incorrect predictions are summarized with count values and broken down by each class. Approximately 67% of True Positives and True Negatives were predicted accurately by the model.
 
-![image](https://user-images.githubusercontent.com/92613639/162113977-1cd161b2-c451-4715-81d4-e574b2f1c4ca.png)
+![Final_CM_RF.png](/Resources/Images/Final_CM_RF.png)
 
 - Baseline for evaluation of Random Forest model accuracy:
   We have seen that the Random Forest Classifier was a good model for this data. But, _was our model really better than just guessing?_
 
-![image](https://user-images.githubusercontent.com/92613639/162114097-c7ff5164-2af2-4941-a312-38e5ac878b6f.png)
+![Final_TrivialClass.png](/Resources/Images/Final_TrivialClass.png)
 
 - ROC Curve: ROC stands for curves receiver operating characteristic curve. It illustrates in a binary classifier system the discrimination threshold created by plotting the true positive rate vs false positive rate. The roc_auc_score always runs from 0 to 1, and is sorting predictive possibilities. 0.5 is the baseline for random guessing, so the goal is to always get above 0.5. The Area Under the Curve (AUC) is the measure of the ability of a classifier to distinguish between classes and is used as a summary of the ROC curve. The higher the AUC, the better the performance of the model at distinguishing between the positive and negative classes. Area under the curve for the Random Forest Model was 73%, which is a good score for the model.
 
-![image](https://user-images.githubusercontent.com/92613639/162114184-402b6b5c-2691-4e6c-9d1a-675fefbe6ebc.png)
+![ROC.png](/Resources/Images/ROC.png)
 
 
 
 ## 5. Results and conclusions 
 We can see that the Random Forest Classifier gave us the best results, with an accuracy of 67.47%% and an F1 score of 67.33%. The most influential features driving the prediction were Total Reviews, Total Price, Average Restaurant Rating, Total Restaurants Delivery and Pickup, and Total number of Restaurant categories.
 
-_Note: We were using only a sample of the Yelp data in a neighborhood. In reality, the number of restaurant categories could be greater for a zipcode._
+_Note: We were using only a sample of the Yelp data in a neighborhood. In reality, the number of restaurant categories could be greater for a zip code._
 
 Inspite of the limitations of the data, the model accuracy prediction was ~67%. So we cautiously concluded that diversity of restaurants in an area, the type of services they offer, and the total reviews could predict the type of neighborhood, classified on average house price in the area.
+
 
 
 ## 6. Recommendations for future analysis 
