@@ -1,6 +1,6 @@
 # Yelp Restaurants and House Prices
 
-### [Google Slides](https://docs.google.com/presentation/d/1VL1pErovXfj_fZwtjBl6Up0cRyxJ3M3iXg7sSbsMDSQ/edit?usp=sharing)
+### [Final Presentation - Google Slides](https://docs.google.com/presentation/d/1VL1pErovXfj_fZwtjBl6Up0cRyxJ3M3iXg7sSbsMDSQ/edit?usp=sharing)
 - See slides for Description of data sources
 - See slides for Description of preliminary data exploration and preprocessing
 - See slides for Description of analysis, including:
