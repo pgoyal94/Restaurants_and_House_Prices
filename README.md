@@ -110,7 +110,7 @@ Other data exploration was done in Tableau: [Click here](https://public.tableau.
 
 ![image](https://user-images.githubusercontent.com/92613639/162111236-8e954a23-1c03-48d3-a805-d1f74acfa656.png)
 
-2. Tier 1 vs. Tier 2 Restaurant Categories: The top Tier 1 Neighborhood Restaurant categories was comapared to Tier 2 Neighborhood restaurant categories. We see that Tier1 Neighborhoods have significantly more Cafes (includes coffeeshops), Sandwiches Bars(cocktail bars, sports bars etc), Brunch, Italian, French, Japanese and Mediterranean restaurant categories. Whereas Tier2 Neighborhoods have more Latin American, Mexican, Chinese Fastfood(burgers, chickenwings, hotdogs etc). Interestingly Pizza which is considered fast food in United States is in larger numbers in Tier1 Neighborhoods.
+2. Tier 1 vs. Tier 2 Restaurant Categories: The top Tier 1 Neighborhood Restaurant categories was comapared to Tier 2 Neighborhood restaurant categories. We see that Tier 1 Neighborhoods have significantly more cafes (includes coffeeshops), sandwiches bars(cocktail bars, sports bars etc), brunch, Italian, French, Japanese and Mediterranean restaurant categories. Whereas Tier 2 Neighborhoods have more Latin American, Mexican, Chinese, fast food(burgers, chicken wings, hot dogs, etc.) categories. Interestingly enough, pzza,which is considered fast food in United States,is in larger numbers in Tier1 Neighborhoods.
 
 ![image](https://user-images.githubusercontent.com/92613639/162111304-cdf0411e-b72d-490b-b916-0aef3d96cde2.png)
 
