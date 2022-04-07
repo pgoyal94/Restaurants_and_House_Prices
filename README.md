@@ -113,25 +113,26 @@ Other data exploration was done on Tableau: [Click here](https://public.tableau.
 
 ![image](/Final/Resources_final/wordCloud.png)
 
+5. Tableau Interactive Dashboard
+
+![image](https://user-images.githubusercontent.com/92613639/162112129-56b8b556-e7ed-47ed-97cd-c2a30efafd8c.png)
+
+
 ## [Machine Learning]()
 
 ### Feature Engineering and Data Splitting
    - Neighborhood tiers was used as the target variable.   
    - Features for modeling were selected from the merged restaurant and housing data based on restaurant characteristics such as total number of reviews, ratings, categories, etc. All location variables and the 2021 housing prices were dropped.
-   - We split our data using the SciKit Learn test_train_split module, which helps us avoid over-or under-fitting. 
+   - We split our data using the SciKit Learn test_train_split module, which helps us avoid over- or under-fitting. 
    - Data was scaled using SciKit Learn's standard scaler.
 
 ### Initial Modeling
  - We used supervised machine learning classification models for our analysis as we are trying to solve a classification problem with our data, i.e. predicting an area's neighborhood tier based on the Yelp restaurant review data. Since we have a rather complex data set, we expected ensemble classifiers to perform better than simple logistic classifiers.
- - We modeled based on three neighborhood tiers. Tiers were determined as such:
-   - Tier 1 = < 25% quantile
-   - Tier 2 = 25-75% 
-   - Tier 3 = > 75% quantile
  - During preliminary modeling, we including all restaurant category columns (expanded dummies for each category and category + star rating). This was over 400 columns, most of which contributed almost 0 to the output. Therefore, we reduced the restaurant features to aggregate data for total price categories, total star ratings, and number of restaurant types (See slide deck for details).
- - Table 1 below shows some sample results from our initial models.
+ - We played around with 5 different models, previously using 3 tiers rather than 2, Table 1 below shows some sample results from our initial models.
 
 
- **Table 1: Sample Results from initial ML Models - [3 Tiers, County Level](https://github.com/pgoyal94/Restaurants_and_House_Prices/blob/main/Final/ML_Final/ML_Model_Trials/ML_optimization_county_3_tier%20.ipynb)**
+ **Table 1: Sample Results from initial ML Models - 3 Tiers, County Level
 
 
 |Model|Accuracy Score|Weighted F1 Score|Tier 1 Precision|Tier 1 Recall|Tier 2 Precision|Tier 2 Recall|Tier 3 Precision|Tier 3 Recall|
@@ -143,27 +144,47 @@ Other data exploration was done on Tableau: [Click here](https://public.tableau.
 |Naive Bayes|30.4%|0.246|0.37|0.16|0.51|0.11|0.27|0.85|
 
 
+Due to the low accuracy scores in the initial modeling, we changed the the number of neighborhood tiers to 2, and made them based on the state median house prices rather than county. 
 
 
-### Model Choice
+### Final Model Choice
+Our initial feature selection had 440 features which we whittled it down to 21 features using feature importance from the initial Random Forest models. The most influential features driving the prediction as you can see are Total Reviews, Total Price, Average Restaurant Rating, Total Restaurants Delivery and Pickup, and Total number of Restaurant categories follow. The highest accuracy that our machine learning models gave us initially was 52%. After dropping to 21 features, we got an accuracy of 62 % which we optimized using GridSearch CV to tune the models hyperparameters.
 
-We currently believe that Logistic Regression will be our final model as it consistently yielded some of our best results, although still needing improvement, regardless of the number of features. Given the low accuracy score, we narrowed our features set to the top 13 features that contributed to the outputs during initial modeling. 
+ - We modeled based on two neighborhood tiers. Tiers were determined as such:
+   - Tier 1: >0.89 (above average house prices)
+   - Tier 2: <=0.89 (below average house prices)
 
-Logistic Regression:
-   - Can be used as a benchmark model.
-   - Pro: Less prone to overfitting, assuming low dimension dataset. 
-   - Pro: It's computationally efficient in that it does not require large amounts of memory or resources. It scales to large datasets well as it processes quickly and efficiently.
-   - Con: It assumes some linear relationship between the dependent and independent variables. For our dataset, we cannot be sure that this assumption is correct due to the large number of features.
+Model Comparison: Random Forest Model with 67.47% accuracy score and 67.33% F1 score perfoms the better than the other models.
+
+![image](https://user-images.githubusercontent.com/92613639/162113723-681dbe1a-2864-4136-a1ab-639c4cf402ce.png)
+
+Random Forest Model Evaluation:
+- Plot feature importance: The most influential features driving the prediction as you can see are Total Reviews, Total Price, Average Restaurant Rating, Total Restaurants Delivery and Pickup, and Total number of Restaurant categories follow.
+![image](https://user-images.githubusercontent.com/92613639/162113939-0b5db904-bd6c-4f0c-ab23-838c6be9d4a9.png)
+
+- Confusion Matrix for Random Forest Classifier: Approximately 67% of True Positives and True Negatives are predicted accurately by the model.
+![image](https://user-images.githubusercontent.com/92613639/162113977-1cd161b2-c451-4715-81d4-e574b2f1c4ca.png)
+
+- Baseline: for evaluation of Random Forest model accuracy
+  We've seen that the Random Forest Classifier is a good model for this data. But, is our model really better than just guessing?
+
+![image](https://user-images.githubusercontent.com/92613639/162114097-c7ff5164-2af2-4941-a312-38e5ac878b6f.png)
+
+- ROC Curve: ROC stands for curves receiver operating characteristic curve. It illustrates in a binary classifier system the discrimination threshold created by plotting the true positive rate vs false positive rate. The roc_auc_score always runs from 0 to 1, and is sorting predictive possibilities. 0.5 is the baseline for random guessing, so you want to always get above 0.5. The Area Under the Curve (AUC) is the measure of the ability of a classifier to distinguish between classes and is used as a summary of the ROC curve. The higher the AUC, the better the performance of the model at distinguishing between the positive and negative classes. Area under the curve for the Random Forest Model is 73% which is a good score for the model.
+
+![image](https://user-images.githubusercontent.com/92613639/162114184-402b6b5c-2691-4e6c-9d1a-675fefbe6ebc.png)
 
 
 ## 5. Results and conclusions 
-   - Based on our preliminary data of the academic Yelp data set, we see that there is a weak correlation, at best. We show a map of the United States, showing the zip codes included in the analysis characterized by their neighborhood tier and diversity of restaurants in the area. The hypotheses would indicate that the larger circles would all be one color, and the smaller circles would all be a seperate color, however looking at the ML model and map, we see that that is not necessarily the case. We see that our hypotheses have been debunked for the most part.
+We can see that the Random Forest Classifier gives the best results with an accuracy of 67.47%% and an F1 score of 67.33%. And the most influential features driving the prediction are Total Reviews, Total Price, Average Restaurant Rating, Total Restaurants Delivery and Pickup, and Total number of Restaurant categories follow.
 
-Sample Tableau Visualization - Tiers and Restaurant Diversity by Zip Code:
+_Note: We are using only a sample of the Yelp data in a neighborhood. In reality, the number of restaurant categories is/can be more for a zipcode._
 
-![image](https://user-images.githubusercontent.com/92613639/161402016-3d3a5bcd-d48d-4f63-b395-cacafcbdd1cd.png)
+Inspite of the limitations of the data, the model accuracy prediction is ~67%. So we cautiously conclude that diversity of restaurants in an area, the type of services they offer and the total reviews can predict the type of neighborhood, classified on median houseprice in the area.
 
 
 ## 6. Recommendations for future analysis 
-   - We believe prediction of house price may be more accurate when including demographic data by zip code. We will be pulling New York City census data to do a small scale analysis to suggest if the above hypothesis holds true to then make that recommendation more broadly. Additionally, things like home attributes (number of bedrooms/bathrooms, home square footage, lot size, school rankings, etc.) were not included in the data sets we pulled, but could be additionally helpful in normalizing house price to better understand how home price and restaurant diversity are related.
-   - Given the low accuracy scores in our initial models during segment 2 of the project, we plan to change our target variable to two tiers only (Tier 1 = above county average, Tier 2 = below county average). 
+   - We believe prediction of house price may be more accurate when including demographic data by zip code. 
+   - Additionally, things like home attributes (number of bedrooms/bathrooms, home square footage, lot size, school rankings, etc.) were not included in the data sets we pulled, but could be additionally helpful in normalizing house price to better understand how home price and restaurant diversity are related.
+   - We should do an analysis more granuraliy, for example, get all the restaurnts for a borough in a city, like Bronx in NYC.
+   - Value of doing such an analysis: Understanding the type of neighborhood can help restaurants figure out where their restaurants will be successful. It also helps them in pricing decisions as higher priced house demographic have higher disposable income.
