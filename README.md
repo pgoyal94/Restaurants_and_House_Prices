@@ -70,8 +70,9 @@ Housing Data:
 ### Restaurant Data
    - Data from Yelp was pulled from their Fusion API and downloaded as a JSON file. We pulled for businesses tagged as "Restaurants." Due to API download limits, we pulled up to 150 businesses across 13,988 zip codes, for which we had housing price data.
    - We cleaned the Yelp dataset to extract any potentially useful restaurant characteristics for modeling. 
-   - Categories for each restaurant type were extracted. Dummies were created for each restaurant category and star ratings of each category for initial exploratory modeling. 
-   - Data for restaurants was aggregated by zip code. The total number of different types of restaurants was counted per zip code.
+      - Ratings, price, and transactions columns were encoded.
+      - Categories for each restaurant type were extracted. Dummies were created for each restaurant category and star ratings of each category for initial exploratory modeling. 
+   - Data for restaurants was aggregated by zip code. The total number of different types of restaurants was counted per zip code to create a new feature representing diversity of restaurants.
 
 ![Yelp_API_Pull.png](/Resources/Images/Yelp_API_Pull.png)
 
