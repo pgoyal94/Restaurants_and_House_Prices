@@ -94,6 +94,13 @@ Housing Data:
 ## [Connection to AWS]()
 All of the above preprocessed data was loaded into an AWS database. The Data Exploration, Machine Learning model, and Tableau Visualization pull data directly from AWS. AWS acts as a powerful tool for storing large amounts of data that can be shared across numerous users. 
 
+AWS includes the following tables:
+- Final Yelp Zipcode Summary
+- Final Zipcode Category Stars Average
+- Final Zipcode Categories Sum
+- Neighborhood 2 Tiers by State Stars Categories
+- Neighborhood Two Tier State Final
+
 ## [Data Exploration]()
 We explored the preprocessed data from the raw Yelp and Housing datasets to find patterns and trends. This data was also used for the Machine Learning Models to predict the type of neighborhoods: above average neighborhood tier or below average neighborhood tier, defined by the state's median house price.
 
