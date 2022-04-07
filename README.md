@@ -13,10 +13,17 @@
 
 
 ### Code
-- [Code for exploratory analysis and cleaning - housing data](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Final/Housing_data_cleaning)
-- [Code for exploratory analysis and cleaning - restaurant data](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Final/Restaurant_data_cleaning)
-- [Code for machine learning](https://github.com/pgoyal94/Restaurants_and_House_Prices/tree/main/Final/ML_Final)
-- [Tableau Dashboard](https://public.tableau.com/app/profile/ryan.morin/viz/tableau_restaurants/RestaurantsHousePrices?publish=yes)
+1. [Data Extraction and Cleaning]()
+   - Housing data clean-up
+   - Restaurant data clean-up
+   - Merged and transformed dataset
+3. [Data Exploration]()
+4. [Machine Learning]()
+5. [Connection to AWS]()
+6. [Resources]()
+7. [Segments]()
+
+_Note: Segments Folder contains all of the initial work, should not referenced for grading purposes._
 
 ---
 
