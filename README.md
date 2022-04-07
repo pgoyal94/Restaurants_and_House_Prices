@@ -27,18 +27,41 @@ _Note: Segments Folder contains all of the initial work, should not referenced f
 
 ---
 
-## 1. Introduction
+## Introduction
    We are looking at the relationship between house prices and restaurants in the area. We believe that areas where homes are more expensive, there may exist a larger variety of restaurants and that these restaurants may be ranked higher than restaurants in areas where homes are less expensive. 
 
+### Technologies Used:
+- Python, Pandas, and Numpy
+- Scikit Learn
+- Jupyter Notebooks
+- Tableau
+- PostgreSQL
+- Amazon RDS (AWS)
 
 
-## 2. Description of the data sources
+## Description of the data sources
    We pulled data from Yelp, Zillow, Redfin, and SimpleMaps for our main database. This gives us data about restaurants, including the types of restaurants, their ratings, number of reviews, etc. as well as house price data. The housing data sets included zip code (postal code in datasets), so that is what we used to define a neighborhood for the purposes of our analysis. SimpleMaps provided city and county information for the Redfin dataset.
    
 _Note: "zip code" and "postal code" are used interchangably in this document._
 
+Restaurant Data:
+- Yelp Fusion API: https://fusion.yelp.com/ 
 
-## 3. Data exploration and processing
+Housing Data:
+- Zillow: https://www.zillow.com/research/data/
+- Redfin:  https://www.redfin.com/news/data-center/
+- SimpleMaps: https://simplemaps.com/data/us-counties
+
+
+## [Data Extraction and Cleaning]()
+
+### Housing Data
+   - The Zillow data set, downloaded as a csv file, included housing price data from 2000 through 2022 by zip code. We kept only the 2021 data for our model as we were interested in the most current representative prices and data for 2022 is incomplete.
+   - The Redfin data listed weekly median housing prices by zip code for 2021 in csv format. We averaged the weekly prices for 2021. We also merged this dataset with city and county data from SimpleMaps to create consistent fields for the merged housing dataset.
+   - Additional location data such as city, state, and county names were kept for preprocessing and visualization.
+
+![image](https://user-images.githubusercontent.com/92613639/162107696-6b2c6454-7f4b-4712-8a6e-a1f7a7699f60.png)
+
 
 ### Restaurant Data
    - Data from Yelp was pulled from their Fusion API and downloaded as JSON. We pulled for businesses tagged as "Restaurants." Due to API download limits, we pulled up to 150 businesses across 13,988 zip codes for which we have housing price data.
@@ -46,15 +69,20 @@ _Note: "zip code" and "postal code" are used interchangably in this document._
    - Categories for each restaurant type were extracted. Dummies were created for each restaurant category and star ratings of each category for initial exploratory modeling. 
    - Data for restaurants were aggregated by zip code. The total number of different types of restaurants were counted per zip code.
 
-### Housing Data
-   - The Zillow data set, downloaded as a csv file, included housing price data from 2000 through 2022 by zip code. We kept only the 2021 data for our model as we were interested in the most current representative prices and data for 2022 is incomplete.
-   - The Redfin data listed weekly median housing prices by zip code for 2021 in csv format. We averaged the weekly prices for 2021. We also merged this dataset with city and county data from SimpleMaps to create consistent fields for the merged housing dataset.
-   - Additional location data such as city, state, and county names were kept for preprocessing and visualization.
+![image](https://user-images.githubusercontent.com/92613639/162107982-f8921103-8a85-4aad-aa4a-4cc096fee84a.png)
+
 
 ### Merge and Preprocessing
    - We joined the final cleaned Yelp and housing datasets on the postal code column using SQL to be able to analyze the data. This showed us, by postal code (zip code), what the median house prices were and what the types of restaurants, their review counts, their ratings were, etc.
-   - Finally, "neighborhood tiers" were created based on a multiplier calculated to eliminate the bias of housing prices in very different markets (e.g. San Francisco market versus rural Texas market where housing prices for equivalent homes would be very different). The median house price for each zip code was divided by average median price for each county (usually several zip codes). Cut offs for tiers was determined by calculating quantiles.
 
+![image](https://user-images.githubusercontent.com/92613639/162108096-3b5d6cd4-18c9-4cc8-b1da-e82660751621.png)
+
+   - Finally, "neighborhood tiers" were created based on a multiplier calculated to eliminate the bias of housing prices in very different markets (e.g. San Francisco market versus rural Texas market where housing prices for equivalent homes would be very different). The median house price for each zip code was divided by average median price for each state. 
+
+![image](https://user-images.githubusercontent.com/92613639/162108525-0a59a706-5cb7-4af1-b796-5618e1903728.png)
+
+
+## [Connection to AWS]()
 
 ## 4. Data analysis (ML modeling)
 
