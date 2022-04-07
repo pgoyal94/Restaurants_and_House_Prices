@@ -182,7 +182,9 @@ Our initial feature selection had 440 features which we whittled it down to 21 f
    - Tier 1: >0.89 (above average house prices)
    - Tier 2: <=0.89 (below average house prices)
 
-Model Comparison: The classification report shows a representation of the main classification metrics on a per-class basis. This gives a deeper intuition of the classifier behavior over global accuracy which can mask functional weaknesses in one class of a multiclass problem. Random Forest Model with 67.47% accuracy score and 67.33% F1 score perfoms the better than the other models.
+Model Comparison: The classification report shows a representation of the main classification metrics on a per-class basis. This gives a deeper intuition of the classifier behavior over global accuracy which can mask functional weaknesses in one class of a multiclass problem. 
+
+Random Forest Model with 67.47% accuracy score and 67.33% F1 score perfoms the better than the other models.
 
 ![image](https://user-images.githubusercontent.com/92613639/162113723-681dbe1a-2864-4136-a1ab-639c4cf402ce.png)
 
