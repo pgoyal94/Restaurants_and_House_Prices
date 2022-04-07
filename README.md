@@ -8,8 +8,7 @@
 - See slides for Description of analysis, including:
   - Description of preliminary feature engineering and preliminary feature selection
   - Description of how data was split
-  - Explanation of model choice
-  - Current accuracy scores
+  - Explanation of model choice and accuracy scores
 - _Note: Please see speaker notes on slides for presentation rehearsal_
 
 
@@ -32,7 +31,7 @@
 ---
 
 ## Introduction
-   We are looking at the relationship between house prices and restaurants in the area. We believe that areas where homes are more expensive, there may exist a larger variety of restaurants and that these restaurants may be ranked higher than restaurants in areas where homes are less expensive. 
+   We looked at the relationship between house prices and restaurants in an area. We hypothesized that areas where homes are more expensive, there may exist a larger variety of restaurants and that these restaurants may be ranked higher than restaurants in areas where homes are less expensive. 
 
 
 ### Technologies Used:
@@ -41,11 +40,11 @@
 - Jupyter Notebooks
 - Tableau
 - PostgreSQL
-- Amazon RDS (AWS)
+- Amazon Relational Database Service (AWS)
 
 
 ## Description of the data sources
-   We pulled data from Yelp, Zillow, Redfin, and SimpleMaps for our main database. This gives us data about restaurants, including the types of restaurants, their ratings, number of reviews, etc. as well as house price data. The housing data sets included zip code (postal code in datasets), so that is what we used to define a neighborhood for the purposes of our analysis. SimpleMaps provided city and county information for the Redfin dataset.
+   We pulled data from Yelp, Zillow, Redfin, and SimpleMaps for our main database. This gave us data about restaurants, including the types of restaurants, their ratings, number of reviews, etc., as well as house price data. The housing data sets included zip code (postal code in datasets), which is what we used to define a neighborhood for the purposes of our analysis. SimpleMaps provided city and county information to augment the Redfin dataset so it could be merged with the Zillow dataset.
    
 _Note: "zip code" and "postal code" are used interchangably in this document._
 
@@ -61,41 +60,41 @@ Housing Data:
 ## [Data Extraction and Cleaning]()
 
 ### Housing Data
-   - The Zillow data set, downloaded as a csv file, included housing price data from 2000 through 2022 by zip code. We kept only the 2021 data for our model as we were interested in the most current representative prices and data for 2022 is incomplete.
-   - The Redfin data listed weekly median housing prices by zip code for 2021 in csv format. We averaged the weekly prices for 2021. We also merged this dataset with city and county data from SimpleMaps to create consistent fields for the merged housing dataset.
+   - The Zillow dataset, downloaded as a CSV file, included housing price data from the year 2000 through 2022, by zip code. We kept only the 2021 data for our model as we were interested in the most current representative prices, as data for 2022 was still incomplete.
+   - The Redfin data listed weekly median housing prices by zip code for 2021 in CSV format. We averaged the weekly prices for 2021. We also merged this dataset with city and county data from SimpleMaps to create consistent fields for the merged housing dataset.
    - Additional location data such as city, state, and county names were kept for preprocessing and visualization.
 
 ![image](https://user-images.githubusercontent.com/92613639/162107696-6b2c6454-7f4b-4712-8a6e-a1f7a7699f60.png)
 
 
 ### Restaurant Data
-   - Data from Yelp was pulled from their Fusion API and downloaded as JSON. We pulled for businesses tagged as "Restaurants." Due to API download limits, we pulled up to 150 businesses across 13,988 zip codes for which we have housing price data.
-   - We cleaned the Yelp data set to extract any potentially useful restaurant characteristics for modeling. Additionally, location data such as city and state information was extracted for data preprocessing and visualization.
+   - Data from Yelp was pulled from their Fusion API and downloaded as a JSON file. We pulled for businesses tagged as "Restaurants." Due to API download limits, we pulled up to 150 businesses across 13,988 zip codes, for which we had housing price data.
+   - We cleaned the Yelp dataset to extract any potentially useful restaurant characteristics for modeling. 
    - Categories for each restaurant type were extracted. Dummies were created for each restaurant category and star ratings of each category for initial exploratory modeling. 
-   - Data for restaurants were aggregated by zip code. The total number of different types of restaurants were counted per zip code.
+   - Data for restaurants was aggregated by zip code. The total number of different types of restaurants was counted per zip code.
 
 ![image](https://user-images.githubusercontent.com/92613639/162107982-f8921103-8a85-4aad-aa4a-4cc096fee84a.png)
 
 
 ### Merge and Preprocessing
-   - We joined the final cleaned Yelp and housing datasets on the postal code column using SQL to be able to analyze the data. This showed us, by postal code (zip code), what the median house prices were and what the types of restaurants, their review counts, their ratings were, etc.
+   - We joined the final cleaned Yelp and housing datasets on the postal code column using SQL to be able to analyze the data. This showed us, by postal code (zip code), what the median house prices were and what the types of restaurants, their review counts, their ratings, etc., were.
 
 ![image](https://user-images.githubusercontent.com/92613639/162108096-3b5d6cd4-18c9-4cc8-b1da-e82660751621.png)
 
-   - Next, "neighborhood tiers" were created based on a multiplier calculated to eliminate the bias of housing prices in very different markets. House prices in every state and city are very different accross the country, for example, house prices for similar size/type houses in San Jose, CA and Tucson, AZ are dramatically different. The median house price for each zip code was divided by average median price for each state. 
-     * We will first calculate the mean house price group by State
-     * Next we will divide each postal_code's house price by the corresponding State's mean house price
-     * This gives us a multiplier for each house price in the dataframe.
+   - Next, "neighborhood tiers" were created based on a multiplier calculated to eliminate the bias of housing prices in very different markets. House prices in every state and city are very different across the country, for example, house prices for similar size/type houses in San Jose, CA and Tucson, AZ are dramatically different. The median house price for each zip code was divided by average house price for each state. 
+     * We will first calculated the mean house price group by state
+     * Next, we divided each postal code's house price by the corresponding state's mean house price
+     * This gave us a multiplier for each house price in the dataframe
     
-   - Finally, we will determine the median quantiles and max of the neighborhood indicators to categorize the neighborhood indicators based on the bins.
+   - Finally, we categorized the neighborhood indicators based on the average house price by state.
      - Tier 1: Above average house price
      - Tier 2: Below average house price
 
 
 ## [Connection to AWS]()
-All of the above preprocessed data was loaded into an AWS database. The Data Exploration, Machine Learning model, and Tableau Visualization pull data directly from AWS. AWS acts as a powerful tool for storing large amounts of data that can be shared across numerous users. 
+All of the above preprocessed data was loaded into an AWS database. The data exploration, machine learning model, and Tableau visualization pull data directly from AWS. AWS acts as a powerful tool for storing large amounts of data that can be shared across numerous users. 
 
-AWS includes the following tables:
+AWS included the following tables:
 - Final Yelp Zipcode Summary
 - Final Zipcode Category Stars Average
 - Final Zipcode Categories Sum
@@ -103,15 +102,15 @@ AWS includes the following tables:
 - Neighborhood Two Tier State Final
 
 ## [Data Exploration]()
-We explored the preprocessed data from the raw Yelp and Housing datasets to find patterns and trends. This data was also used for the Machine Learning Models to predict the type of neighborhoods: above average neighborhood tier or below average neighborhood tier, defined by the state's median house price.
+We explored the preprocessed data from the raw Yelp and housing datasets to find patterns and trends. This data was also used for the machine learning models to predict the type of neighborhoods: above average neighborhood tier or below average neighborhood tier, defined by the state's average house price.
 
-Other data exploration was done on Tableau: [Click here](https://public.tableau.com/app/profile/ryan.morin/viz/tableau_restaurants/RestaurantsHousePrices?publish=yes) see our interactive map based on neighborhood tiers and our project analysis.
+Other data exploration was done in Tableau: [Click here](https://public.tableau.com/app/profile/ryan.morin/viz/tableau_restaurants/RestaurantsHousePrices?publish=yes)  to see our interactive map based on neighborhood tiers and our project analysis.
 
 1. Correlation Matrix: A correlation matrix is a table showing correlation coefficients between variables. Each cell in the table shows the correlation between two variables. A correlation matrix is used to summarize data, as an input into a more advanced analysis, and as a diagnostic for advanced analyses.
 
 ![image](https://user-images.githubusercontent.com/92613639/162111236-8e954a23-1c03-48d3-a805-d1f74acfa656.png)
 
-2. Tier 1 vs. Tier 2 Restaurant Categories: The top Tier1 Neighborhood Restaurant categories is comapared to Tier2 Neighborhood. We can see that Tier1 Neighborhoods have significantly more Cafes (includes coffeeshops), Sandwiches Bars(cocktail bars, sports bars etc), Brunch, Italian, French, Japanese and Mediterranean restaurant categories. Whereas Tier2 Neighborhoods have more Latin American, Mexican, Chinese Fastfood(burgers, chickenwings, hotdogs etc). Interestingly Pizza which is considered fast food in United States is in larger numbers in Tier1 Neighborhoods.
+2. Tier 1 vs. Tier 2 Restaurant Categories: The top Tier 1 Neighborhood Restaurant categories was comapared to Tier 2 Neighborhood restaurant categories. We see that Tier1 Neighborhoods have significantly more Cafes (includes coffeeshops), Sandwiches Bars(cocktail bars, sports bars etc), Brunch, Italian, French, Japanese and Mediterranean restaurant categories. Whereas Tier2 Neighborhoods have more Latin American, Mexican, Chinese Fastfood(burgers, chickenwings, hotdogs etc). Interestingly Pizza which is considered fast food in United States is in larger numbers in Tier1 Neighborhoods.
 
 ![image](https://user-images.githubusercontent.com/92613639/162111304-cdf0411e-b72d-490b-b916-0aef3d96cde2.png)
 
