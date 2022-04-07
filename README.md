@@ -197,9 +197,11 @@ Benefits:
 
 Metrics:
 - Plot feature importance: The most influential features driving the prediction as you can see are Total Reviews, Total Price, Average Restaurant Rating, Total Restaurants Delivery and Pickup, and Total number of Restaurant categories follow.
+
 ![image](https://user-images.githubusercontent.com/92613639/162113939-0b5db904-bd6c-4f0c-ab23-838c6be9d4a9.png)
 
-- Confusion Matrix for Random Forest Classifier: Approximately 67% of True Positives and True Negatives are predicted accurately by the model.
+- Confusion Matrix for Random Forest Classifier: A confusion matrix is a summary of prediction results on a classification problem. The number of correct and incorrect predictions are summarized with count values and broken down by each class. Approximately 67% of True Positives and True Negatives are predicted accurately by the model.
+
 ![image](https://user-images.githubusercontent.com/92613639/162113977-1cd161b2-c451-4715-81d4-e574b2f1c4ca.png)
 
 - Baseline: for evaluation of Random Forest model accuracy
