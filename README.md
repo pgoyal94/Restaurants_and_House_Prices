@@ -22,8 +22,9 @@
 3. [Machine Learning]()
 4. [Connection to AWS]()
 5. [Resources]()
+   - Contains Images folder
 6. [Segments]()
-_Note: Segments Folder contains all of the initial work, should not referenced for grading purposes._
+   - _Note: Segments Folder contains all of the initial work, should not referenced for grading purposes._
 
 [Tableau Interactive Dashboard](https://public.tableau.com/app/profile/ryan.morin/viz/tableau_restaurants/RestaurantsHousePrices?publish=yes)
 
