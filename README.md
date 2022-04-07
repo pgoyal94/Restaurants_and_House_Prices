@@ -23,10 +23,10 @@
 4. [Connection to AWS]()
 5. [Resources]()
 6. [Segments]()
+_Note: Segments Folder contains all of the initial work, should not referenced for grading purposes._
 
 [Tableau Interactive Dashboard](https://public.tableau.com/app/profile/ryan.morin/viz/tableau_restaurants/RestaurantsHousePrices?publish=yes)
 
-_Note: Segments Folder contains all of the initial work, should not referenced for grading purposes._
 
 ---
 
