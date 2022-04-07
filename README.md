@@ -18,10 +18,12 @@
    - Restaurant data clean-up
    - Merged and transformed dataset
 2. [Data Exploration]()
-3 [Machine Learning]()
-4 [Connection to AWS]()
-5 [Resources]()
-6 [Segments]()
+3. [Machine Learning]()
+4. [Connection to AWS]()
+5. [Resources]()
+6. [Segments]()
+
+[Tableau Interactive Dashboard](https://public.tableau.com/app/profile/ryan.morin/viz/tableau_restaurants/RestaurantsHousePrices?publish=yes)
 
 _Note: Segments Folder contains all of the initial work, should not referenced for grading purposes._
 
@@ -93,9 +95,20 @@ All of the above preprocessed data was loaded into an AWS database. The Data Exp
 ## [Data Exploration]()
 We explored the preprocessed data from the raw Yelp and Housing datasets to find patterns and trends. This data was also used for the Machine Learning Models to predict the type of neighborhoods: above average neighborhood tier or below average neighborhood tier, defined by the state's median house price.
 
-Other data exploration was done on Tableau : Link where you can see our interactive map based on neighborhood tiers and our project analysis.
+Other data exploration was done on Tableau: [Click here](https://public.tableau.com/app/profile/ryan.morin/viz/tableau_restaurants/RestaurantsHousePrices?publish=yes) see our interactive map based on neighborhood tiers and our project analysis.
 
-A correlation matrix is a table showing correlation coefficients between variables. Each cell in the table shows the correlation between two variables. A correlation matrix is used to summarize data, as an input into a more advanced analysis, and as a diagnostic for advanced analyses.
+1. Correlation Matrix: A correlation matrix is a table showing correlation coefficients between variables. Each cell in the table shows the correlation between two variables. A correlation matrix is used to summarize data, as an input into a more advanced analysis, and as a diagnostic for advanced analyses.
+
+![image](https://user-images.githubusercontent.com/92613639/162111236-8e954a23-1c03-48d3-a805-d1f74acfa656.png)
+
+2. Tier 1 vs. Tier 2 Restaurant Categories: The top Tier1 Neighborhood Restaurant categories is comapared to Tier2 Neighborhood. We can see that Tier1 Neighborhoods have significantly more Cafes (includes coffeeshops), Sandwiches Bars(cocktail bars, sports bars etc), Brunch, Italian, French, Japanese and Mediterranean restaurant categories. Whereas Tier2 Neighborhoods have more Latin American, Mexican, Chinese Fastfood(burgers, chickenwings, hotdogs etc). Interestingly Pizza which is considered fast food in United States is in larger numbers in Tier1 Neighborhoods.
+
+![image](https://user-images.githubusercontent.com/92613639/162111304-cdf0411e-b72d-490b-b916-0aef3d96cde2.png)
+
+3. Review Counts by Yelp Stars: Tier1 has more reviews than Tier2 and for both categories having a similar distribution centered around 3.5-4.5 Yelp stars.
+
+![image](https://user-images.githubusercontent.com/92613639/162111203-3c025ef0-b9f3-48e9-83b0-62638be15ec7.png)
+
 
 ## [Machine Learning]()
 
