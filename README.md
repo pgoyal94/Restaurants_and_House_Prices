@@ -17,11 +17,11 @@
    - Housing data clean-up
    - Restaurant data clean-up
    - Merged and transformed dataset
-3. [Data Exploration]()
-4. [Machine Learning]()
-5. [Connection to AWS]()
-6. [Resources]()
-7. [Segments]()
+2. [Data Exploration]()
+3 [Machine Learning]()
+4 [Connection to AWS]()
+5 [Resources]()
+6 [Segments]()
 
 _Note: Segments Folder contains all of the initial work, should not referenced for grading purposes._
 
@@ -83,8 +83,17 @@ Housing Data:
 
 
 ## [Connection to AWS]()
+All of the above preprocessed data was loaded into an AWS database. The Data Exploration, Machine Learning model, and Tableau Visualization pull data directly from AWS. AWS acts as a powerful tool for storing large amounts of data that can be shared across numerous users. 
 
-## 4. Data analysis (ML modeling)
+## [Data Exploration]()
+We explored the 
+ata cleaned from the raw Yelp and Housing datasets to find patterns and trends. This data will be used for the Machine Learning Models to predict the type of neighborhoods : Above average Neighborhood tier or Below average neighborhood tier defined by the States median house price.
+
+Other data exploration was done on Tableau : Link where you can see our interactive map based on neighborhood tiers and our project analysis.
+
+A correlation matrix is a table showing correlation coefficients between variables. Each cell in the table shows the correlation between two variables. A correlation matrix is used to summarize data, as an input into a more advanced analysis, and as a diagnostic for advanced analyses.
+
+## [Machine Learning]()
 
 ### Feature Engineering and Data Splitting
    - Neighborhood tiers was used as the target variable.   
