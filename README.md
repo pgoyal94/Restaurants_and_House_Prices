@@ -20,8 +20,9 @@
 2. [Data Exploration](/2._Data_Exploration)
 3. [Machine Learning](/3._Machine_Learning)
 4. [Connection to AWS Database](/4._Connection_to_AWS_Database)
+   - Image of ERD (database)
 5. [Resources](/Resources)
-   - Contains Images folder, including image of ERD (database)
+   - Contains Images folder
 6. [Segments](/Segments)
    - _Note: Segments Folder contains all of the initial work, should not referenced for grading purposes._
 
